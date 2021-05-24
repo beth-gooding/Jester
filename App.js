@@ -1,19 +1,14 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
+import 'react-native-gesture-handler';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
+import { NavigationContainer } from '@react-navigation/native';
 const App = () => {
   return (
-    <View style={styles.jokeJenerator}>
-      <Text style={styles.jokeJeneratorText}>Joke Jenerator</Text>
-    </View>
+    <NavigationContainer>
+      <View style={styles.jokeJenerator}>
+        <Text style={styles.jokeJeneratorText}>Joke Jenerator</Text>
+      </View>
+    </NavigationContainer>
   );
 };
 
