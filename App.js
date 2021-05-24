@@ -1,8 +1,8 @@
-import 'react-native-gesture-handler';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-const App = () => {
+
+export const App = () => {
   return (
     <NavigationContainer>
       <View style={styles.jokeJenerator}>
@@ -21,5 +21,3 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
 });
-
-export default App;
