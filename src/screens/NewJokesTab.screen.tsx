@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { useEffect } from 'react';
 import { useAppContext } from '../App.provider';
 import { StarJokeIcon } from '../components/StarJoke.icon';
+import { DiscardJokeIcon } from '../components/DiscardJoke.icon';
 
 export const NewJokesTab: React.FC = () => {
     const { joke } = useAppContext();
@@ -21,7 +22,7 @@ export const NewJokesTab: React.FC = () => {
                 <StarJokeIcon />
             </TouchableOpacity>
             <TouchableOpacity onPress={handleFetchNewJoke}>
-                <Text>Discard</Text>
+                <DiscardJokeIcon />
             </TouchableOpacity>
             </View>
         </View>
