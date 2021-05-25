@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { RootNavigator } from './src/screens/Root.navigator';
-import { AppProvider } from './src/App.provider';
+import { RootNavigator } from './screens/Root.navigator';
+import { AppProvider } from './App.provider';
 
 export const App: React.FC = () => {
   return (
