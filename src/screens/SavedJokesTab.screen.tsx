@@ -1,14 +1,19 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { FlatList } from 'react-native-gesture-handler';
 import { useAppContext } from '../App.provider';
 
 export const SavedJokesTab: React.FC = () => {
 
     const { savedJokes } = useAppContext();
     return (
-        <View style={styles.container}>
-            {savedJokes.map((joke: string) => (<View style={styles.jokeContainer}><Text style={styles.joke}>{joke}</Text></View>))}
-        </View>
+        <FlatList 
+          style={styles.listContainer}
+          keyExtractor={item => item}
+          data={savedJokes}
+          renderItem={({ item }) => (
+              <View style={styles.jokeContainer} ><Text style={styles.joke}>{item}</Text></View>
+          )} />
     )
 }
 
@@ -18,11 +23,14 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    listContainer: {
+        backgroundColor: 'white',
+    },
     jokeContainer: {
         backgroundColor: 'white',
         borderWidth: 2,
         borderRadius: 15,
-        marginVertical: 5,
+        margin: 5,
         padding: 5
     },
     joke: {
