@@ -12,8 +12,6 @@ export const NewJokesTab: React.FC = () => {
         handleFetchNewJoke();
     }, [handleFetchNewJoke])
 
-    
-
     return (
         <View style={styles.jokeJenerator}>
             <Text style={styles.joke}>{joke}</Text>

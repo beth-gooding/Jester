@@ -33,7 +33,7 @@ export const AppProvider: React.FC = ({ children }) => {
           setJoke(newJoke.joke);
       }
   }, [])
-  
+
   const handleSave = () => {
     setSavedJokes([joke, ...savedJokes]);
     handleFetchNewJoke();
@@ -45,4 +45,4 @@ export const AppProvider: React.FC = ({ children }) => {
   );
 };
 
-export const useAppContext = () => useContext(AppContext)
+export const useAppContext = () => useContext(AppContext);

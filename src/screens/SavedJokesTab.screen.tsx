@@ -7,7 +7,6 @@ export const SavedJokesTab: React.FC = () => {
     const { savedJokes } = useAppContext();
     return (
         <View style={styles.jokeJenerator}>
-            
             {savedJokes.map((joke: string) => (<Text style={styles.joke}>{joke}</Text>))}
         </View>
     )
