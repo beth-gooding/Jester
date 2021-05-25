@@ -1,33 +1,19 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { useCallback, useState, useEffect } from 'react';
+import { useAppContext } from '../App.provider';
 
 export const NewJokesTab: React.FC = () => {
-    const [joke, setJoke] = useState();
-    const [savedJokes, setSavedJokes] = useState([]);
-    const handleFetchNewJoke = useCallback(async () => {
-        const res = await fetch('https://icanhazdadjoke.com/', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                'User-Agent': 'My Library (https://github.com/beth-gooding/JokeJenerator)'
-            }
-        })
-        const newJoke = await res.json();
-        if (res.ok) {
-            setJoke(newJoke.joke);
-        }
-    }, [])
+    const { joke } = useAppContext();
+    const { handleFetchNewJoke } = useAppContext();
+    const { handleSave } = useAppContext();
+    const { savedJokes } = useAppContext();
 
     useEffect(() => {
         handleFetchNewJoke();
     }, [handleFetchNewJoke])
 
-    const handleSave = () => {
-        setSavedJokes([joke, ...savedJokes]);
-        handleFetchNewJoke();
-    }
+    
 
     return (
         <View style={styles.jokeJenerator}>
@@ -40,7 +26,7 @@ export const NewJokesTab: React.FC = () => {
                 <Text>Discard</Text>
             </TouchableOpacity>
             </View>
-            {savedJokes.map(joke => (<Text style={styles.joke}>{joke}</Text>))}
+            {savedJokes.map((joke: string) => (<Text style={styles.joke}>{joke}</Text>))}
         </View>
     )
 }
