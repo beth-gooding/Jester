@@ -40,7 +40,7 @@ export const NewJokesTab: React.FC = () => {
                 <Text>Discard</Text>
             </TouchableOpacity>
             </View>
-            <Text>{savedJokes}</Text>
+            {savedJokes.map(joke => (<Text style={styles.joke}>{joke}</Text>))}
         </View>
     )
 }
@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
       },
     joke: {
         textAlign: 'center',
+        paddingVertical: 5,
     },
     btnContainer: {
         flexDirection: 'row',
