@@ -1,10 +1,11 @@
 import React, { createContext, useContext, useState, useCallback } from "react";
+import { JokeWithTimeStamp } from './types';
 
 type AppContextType = {
   joke: string,
   handleFetchNewJoke: () => void;
   handleSave: () => void;
-  savedJokes: string[];
+  savedJokes: JokeWithTimeStamp[];
 };
 
 const defaultValue = {
@@ -17,7 +18,7 @@ const defaultValue = {
 const AppContext = createContext<AppContextType>(defaultValue);
 
 export const AppProvider: React.FC = ({ children }) => {
-  const [savedJokes, setSavedJokes] = useState<string[]>([]);
+  const [savedJokes, setSavedJokes] = useState<JokeWithTimeStamp[]>([]);
   const [joke, setJoke] = useState<string>('');
   const handleFetchNewJoke = useCallback(async () => {
       const res = await fetch('https://icanhazdadjoke.com/', {
@@ -35,7 +36,7 @@ export const AppProvider: React.FC = ({ children }) => {
   }, [])
 
   const handleSave = () => {
-    setSavedJokes([joke, ...savedJokes]);
+    setSavedJokes([{joke: joke, timestamp: Date.now()}, ...savedJokes]);
     handleFetchNewJoke();
     
 }
