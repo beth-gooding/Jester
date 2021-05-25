@@ -17,7 +17,8 @@ export const NewJokesTab: React.FC = () => {
     return (
         <View style={styles.jokeJenerator}>
             <View style={styles.jokeContainer} >
-            <Text style={styles.joke}>{joke}</Text>
+                <Text style={styles.jokeTitle}>Here's a joke for you:</Text>
+                <Text style={styles.joke}>{joke}</Text>
             </View>
             <View style={styles.btnContainer}>
             <TouchableOpacity onPress={handleSave}>
@@ -41,6 +42,13 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         padding: 5,
         fontWeight: 'bold',
+        fontSize: 16,
+    },
+    jokeTitle: {
+        textAlign: 'center',
+        padding: 5,
+        fontWeight: 'bold',
+        fontSize: 20,
     },
     btnContainer: {
         flexDirection: 'row',
