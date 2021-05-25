@@ -1,13 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { useCallback, useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useAppContext } from '../App.provider';
 
 export const NewJokesTab: React.FC = () => {
     const { joke } = useAppContext();
     const { handleFetchNewJoke } = useAppContext();
     const { handleSave } = useAppContext();
-    const { savedJokes } = useAppContext();
 
     useEffect(() => {
         handleFetchNewJoke();
@@ -26,7 +25,6 @@ export const NewJokesTab: React.FC = () => {
                 <Text>Discard</Text>
             </TouchableOpacity>
             </View>
-            {savedJokes.map((joke: string) => (<Text style={styles.joke}>{joke}</Text>))}
         </View>
     )
 }

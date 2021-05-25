@@ -33,6 +33,7 @@ export const AppProvider: React.FC = ({ children }) => {
           setJoke(newJoke.joke);
       }
   }, [])
+  
   const handleSave = () => {
     setSavedJokes([joke, ...savedJokes]);
     handleFetchNewJoke();
