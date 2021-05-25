@@ -7,7 +7,7 @@ type DiscardJokeIconProps = {
 }
 
 export const DiscardJokeIcon: React.FC<DiscardJokeIconProps> = ({ 
-    color = 'red', 
+    color = '#1C72E3', 
     size = 110, 
 }) => {
     return (
