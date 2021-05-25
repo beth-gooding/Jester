@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { useEffect } from 'react';
 import { useAppContext } from '../App.provider';
+import { StarJokeIcon } from '../components/StarJoke.icon';
 
 export const NewJokesTab: React.FC = () => {
     const { joke } = useAppContext();
@@ -17,7 +18,7 @@ export const NewJokesTab: React.FC = () => {
             <Text style={styles.joke}>{joke}</Text>
             <View style={styles.btnContainer}>
             <TouchableOpacity onPress={handleSave}>
-                <Text>Save</Text>
+                <StarJokeIcon />
             </TouchableOpacity>
             <TouchableOpacity onPress={handleFetchNewJoke}>
                 <Text>Discard</Text>
