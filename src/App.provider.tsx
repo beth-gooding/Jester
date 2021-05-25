@@ -17,8 +17,8 @@ const defaultValue = {
 const AppContext = createContext<AppContextType>(defaultValue);
 
 export const AppProvider: React.FC = ({ children }) => {
-  const [savedJokes, setSavedJokes] = useState([]);
-  const [joke, setJoke] = useState('');
+  const [savedJokes, setSavedJokes] = useState<string[]>([]);
+  const [joke, setJoke] = useState<string>('');
   const handleFetchNewJoke = useCallback(async () => {
       const res = await fetch('https://icanhazdadjoke.com/', {
           method: 'GET',
@@ -37,6 +37,7 @@ export const AppProvider: React.FC = ({ children }) => {
   const handleSave = () => {
     setSavedJokes([joke, ...savedJokes]);
     handleFetchNewJoke();
+    
 }
   return (
     <AppContext.Provider value={{ joke, handleFetchNewJoke, handleSave, savedJokes }}>
