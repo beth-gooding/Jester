@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export const StatsTab: React.FC = () => {
     return (
         <View>
-            <Text>Stats screens</Text>
+            <Text>Stats screen</Text>
         </View>
     )
 }
