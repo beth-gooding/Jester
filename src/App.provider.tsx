@@ -1,5 +1,6 @@
-import React, { createContext, useContext, useState, useCallback } from "react";
-import { JokeWithTimeStamp } from './types';
+import React, { createContext, useContext, useState, useCallback, useEffect } from "react";
+import { JokeWithTimeStamp, AppData } from './types';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 type AppContextType = {
   joke: string,
@@ -16,6 +17,27 @@ const defaultValue = {
 };
 
 const AppContext = createContext<AppContextType>(defaultValue);
+
+const storageKey = 'Joke-Jenerator-Data';
+
+const getAppData = async (): Promise<AppData | null> => {
+  try {
+    const data = await AsyncStorage.getItem(storageKey);
+
+    if (data) {
+      return JSON.parse(data);
+    }
+    return null;
+  } catch {
+    return null;
+  }
+};
+
+const setAppData = async (newData: AppData) => {
+  try {
+    await AsyncStorage.setItem(storageKey, JSON.stringify(newData));
+  } catch {}
+};
 
 export const AppProvider: React.FC = ({ children }) => {
   const [savedJokes, setSavedJokes] = useState<JokeWithTimeStamp[]>([]);
@@ -36,10 +58,22 @@ export const AppProvider: React.FC = ({ children }) => {
   }, [])
 
   const handleSave = () => {
-    setSavedJokes([{joke: joke, timestamp: Date.now()}, ...savedJokes]);
+    const updatedJokes = [{joke: joke, timestamp: Date.now()}, ...savedJokes];
+    setSavedJokes(updatedJokes);
+    setAppData({ jokes: updatedJokes })
     handleFetchNewJoke();
-    
-}
+    }
+
+  useEffect(() => {
+    const getDataFromStorage = async () => {
+      const data = await getAppData();
+
+      if (data) {
+        setSavedJokes(data.jokes);
+      }
+    };
+    getDataFromStorage();
+  }, [])  
   return (
     <AppContext.Provider value={{ joke, handleFetchNewJoke, handleSave, savedJokes }}>
       {children}

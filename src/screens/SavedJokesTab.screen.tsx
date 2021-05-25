@@ -13,7 +13,10 @@ export const SavedJokesTab: React.FC = () => {
           keyExtractor={item => item.timestamp}
           data={savedJokes}
           renderItem={({ item }) => (
-              <View style={styles.jokeContainer} ><Text style={styles.joke}>{item.joke}</Text><Text>{format(new Date(item.timestamp), 'dd MMM, yyyy')}</Text></View>
+              <View style={styles.jokeContainer} >
+                  <Text style={styles.joke}>{item.joke}</Text>
+                  <Text>{format(new Date(item.timestamp), 'dd MMM, yyyy')}</Text>
+              </View>
           )} />
     )
 }
