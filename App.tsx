@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 
-export const App = () => {
+export const App: React.FC = () => {
   return (
     <NavigationContainer>
       <View style={styles.jokeJenerator}>
