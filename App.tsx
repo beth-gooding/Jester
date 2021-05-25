@@ -11,12 +11,4 @@ export const App: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  jokeJenerator: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  jokeJeneratorText: {
-    alignSelf: 'center',
-  },
-});
+const styles = StyleSheet.create({});
