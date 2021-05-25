@@ -6,20 +6,28 @@ export const SavedJokesTab: React.FC = () => {
 
     const { savedJokes } = useAppContext();
     return (
-        <View style={styles.jokeJenerator}>
-            {savedJokes.map((joke: string) => (<Text style={styles.joke}>{joke}</Text>))}
+        <View style={styles.container}>
+            {savedJokes.map((joke: string) => (<View style={styles.jokeContainer}><Text style={styles.joke}>{joke}</Text></View>))}
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    jokeJenerator: {
+    container: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-      },
+    },
+    jokeContainer: {
+        backgroundColor: 'white',
+        borderWidth: 2,
+        borderRadius: 15,
+        marginVertical: 5,
+        padding: 5
+    },
     joke: {
         textAlign: 'center',
         paddingVertical: 5,
+        fontWeight: 'bold',
     },
 })
