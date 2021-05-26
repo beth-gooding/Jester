@@ -21,7 +21,7 @@ export const NewJokesTab: React.FC = () => {
         <Text style={styles.joke}>{joke}</Text>
       </View>
       <View style={styles.btnContainer}>
-        <TouchableOpacity onPress={handleSave}>
+        <TouchableOpacity onPress={() => handleSave(joke)}>
           <StarJokeIcon />
         </TouchableOpacity>
         <TouchableOpacity onPress={handleFetchNewJoke}>

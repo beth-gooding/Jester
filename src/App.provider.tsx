@@ -11,7 +11,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 type AppContextType = {
   joke: string;
   handleFetchNewJoke: () => void;
-  handleSave: () => void;
+  handleSave: (joke: string) => void;
   savedJokes: JokeWithTimeStamp[];
 };
 
@@ -64,12 +64,18 @@ export const AppProvider: React.FC = ({ children }) => {
     }
   }, []);
 
-  const handleSave = () => {
-    const updatedJokes = [{ joke: joke, timestamp: Date.now() }, ...savedJokes];
-    setSavedJokes(updatedJokes);
-    setAppData({ jokes: updatedJokes });
-    handleFetchNewJoke();
-  };
+  const handleSave = useCallback(
+    (jokeToSave: string) => {
+      const updatedJokes = [
+        { joke: jokeToSave, timestamp: Date.now() },
+        ...savedJokes,
+      ];
+      setSavedJokes(updatedJokes);
+      setAppData({ jokes: updatedJokes });
+      handleFetchNewJoke();
+    },
+    [handleFetchNewJoke, savedJokes],
+  );
 
   useEffect(() => {
     const getDataFromStorage = async () => {
