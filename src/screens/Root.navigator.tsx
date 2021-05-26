@@ -4,10 +4,14 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 const RootStack = createStackNavigator();
 
-export const RootNavigator: React.FC =() => {
-    return (
-        <RootStack.Navigator initialRouteName="BottomTabs">
-            <RootStack.Screen name="BottomTabs" component={BottomTabs} options={{ headerShown: false }}/>
-        </RootStack.Navigator>
-    );
-}
+export const RootNavigator: React.FC = () => {
+  return (
+    <RootStack.Navigator initialRouteName="BottomTabs">
+      <RootStack.Screen
+        name="BottomTabs"
+        component={BottomTabs}
+        options={{ headerShown: false }}
+      />
+    </RootStack.Navigator>
+  );
+};

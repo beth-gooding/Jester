@@ -1,16 +1,22 @@
-import React, { createContext, useContext, useState, useCallback, useEffect } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useCallback,
+  useEffect,
+} from 'react';
 import { JokeWithTimeStamp, AppData } from './types';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 type AppContextType = {
-  joke: string,
+  joke: string;
   handleFetchNewJoke: () => void;
   handleSave: () => void;
   savedJokes: JokeWithTimeStamp[];
 };
 
 const defaultValue = {
-  joke: "",
+  joke: '',
   handleFetchNewJoke: () => {},
   handleSave: () => {},
   savedJokes: [],
@@ -43,26 +49,27 @@ export const AppProvider: React.FC = ({ children }) => {
   const [savedJokes, setSavedJokes] = useState<JokeWithTimeStamp[]>([]);
   const [joke, setJoke] = useState<string>('');
   const handleFetchNewJoke = useCallback(async () => {
-      const res = await fetch('https://icanhazdadjoke.com/', {
-          method: 'GET',
-          headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json',
-              'User-Agent': 'My Library (https://github.com/beth-gooding/JokeJenerator)'
-          }
-      })
-      const newJoke = await res.json();
-      if (res.ok) {
-          setJoke(newJoke.joke);
-      }
-  }, [])
+    const res = await fetch('https://icanhazdadjoke.com/', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        'User-Agent':
+          'My Library (https://github.com/beth-gooding/JokeJenerator)',
+      },
+    });
+    const newJoke = await res.json();
+    if (res.ok) {
+      setJoke(newJoke.joke);
+    }
+  }, []);
 
   const handleSave = () => {
-    const updatedJokes = [{joke: joke, timestamp: Date.now()}, ...savedJokes];
+    const updatedJokes = [{ joke: joke, timestamp: Date.now() }, ...savedJokes];
     setSavedJokes(updatedJokes);
-    setAppData({ jokes: updatedJokes })
+    setAppData({ jokes: updatedJokes });
     handleFetchNewJoke();
-    }
+  };
 
   useEffect(() => {
     const getDataFromStorage = async () => {
@@ -73,9 +80,11 @@ export const AppProvider: React.FC = ({ children }) => {
       }
     };
     getDataFromStorage();
-  }, [])  
+  }, []);
   return (
-    <AppContext.Provider value={{ joke, handleFetchNewJoke, handleSave, savedJokes }}>
+    <AppContext.Provider
+      value={{ joke, handleFetchNewJoke, handleSave, savedJokes }}
+    >
       {children}
     </AppContext.Provider>
   );
