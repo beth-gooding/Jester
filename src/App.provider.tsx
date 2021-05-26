@@ -12,6 +12,7 @@ type AppContextType = {
   joke: string;
   handleFetchNewJoke: () => void;
   handleSave: (joke: string) => void;
+  handleDeleteJoke: (joke: JokeWithTimeStamp) => void;
   savedJokes: JokeWithTimeStamp[];
 };
 
@@ -19,6 +20,7 @@ const defaultValue = {
   joke: '',
   handleFetchNewJoke: () => {},
   handleSave: () => {},
+  handleDeleteJoke: () => {},
   savedJokes: [],
 };
 
@@ -77,6 +79,16 @@ export const AppProvider: React.FC = ({ children }) => {
     [handleFetchNewJoke, savedJokes],
   );
 
+  const handleDeleteJoke = useCallback((jokeToDelete: JokeWithTimeStamp) => {
+    setSavedJokes((current) => {
+      const newSavedJokes = current.filter(
+        (item) => item.timestamp !== jokeToDelete.timestamp,
+      );
+      setAppData({ jokes: newSavedJokes });
+      return newSavedJokes;
+    });
+  }, []);
+
   useEffect(() => {
     const getDataFromStorage = async () => {
       const data = await getAppData();
@@ -89,7 +101,13 @@ export const AppProvider: React.FC = ({ children }) => {
   }, []);
   return (
     <AppContext.Provider
-      value={{ joke, handleFetchNewJoke, handleSave, savedJokes }}
+      value={{
+        joke,
+        handleFetchNewJoke,
+        handleSave,
+        handleDeleteJoke,
+        savedJokes,
+      }}
     >
       {children}
     </AppContext.Provider>
