@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { format } from 'date-fns';
 import { JokeWithTimeStamp } from '../types';
 
 type JokeItemRowProps = {
@@ -11,9 +10,6 @@ export const SavedJokeListItem: React.FC<JokeItemRowProps> = (jokeItem) => {
   return (
     <View style={styles.jokeContainer}>
       <Text style={styles.joke}>{jokeItem.jokeObject.joke}</Text>
-      <Text>
-        {format(new Date(jokeItem.jokeObject.timestamp), 'dd MMM yyyy')}
-      </Text>
     </View>
   );
 };
