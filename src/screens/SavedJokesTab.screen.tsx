@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import { useAppContext } from '../App.provider';
 import { SavedJokeListItem } from '../components/SavedJokeListItem';
@@ -7,6 +7,7 @@ import groupBy from 'lodash/groupBy';
 import orderBy from 'lodash/orderBy';
 import { format } from 'date-fns';
 import { JokeWithTimeStamp } from '../types';
+import { Drawer } from '../components/Drawer';
 
 export const SavedJokesTab: React.FC = () => {
   const { savedJokes } = useAppContext();
@@ -28,10 +29,11 @@ export const SavedJokesTab: React.FC = () => {
       data={daysWithJokes}
       renderItem={({ item }) => (
         <View style={styles.dayContainer}>
-          <Text style={styles.title}>{item.day}</Text>
-          {item.jokesInDay.map((joke: JokeWithTimeStamp) => (
-            <SavedJokeListItem jokeObject={joke} key={joke.timestamp} />
-          ))}
+          <Drawer title={item.day}>
+            {item.jokesInDay.map((joke: JokeWithTimeStamp) => (
+              <SavedJokeListItem jokeObject={joke} key={joke.timestamp} />
+            ))}
+          </Drawer>
         </View>
       )}
     />
@@ -51,12 +53,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingVertical: 5,
     fontWeight: 'bold',
-  },
-  title: {
-    fontWeight: 'bold',
-    textAlign: 'center',
-    fontSize: 20,
-    paddingVertical: 15,
   },
   dayContainer: {
     margin: 10,
