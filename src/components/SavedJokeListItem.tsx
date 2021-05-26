@@ -12,7 +12,7 @@ export const SavedJokeListItem: React.FC<JokeItemRowProps> = (jokeItem) => {
     <View style={styles.jokeContainer}>
       <Text style={styles.joke}>{jokeItem.jokeObject.joke}</Text>
       <Text>
-        {format(new Date(jokeItem.jokeObject.timestamp), 'dd MMM, yyyy')}
+        {format(new Date(jokeItem.jokeObject.timestamp), 'dd MMM yyyy')}
       </Text>
     </View>
   );
