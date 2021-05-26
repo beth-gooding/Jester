@@ -13,6 +13,11 @@ import {
   PanGestureHandler,
   PanGestureHandlerGestureEvent,
 } from 'react-native-gesture-handler';
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from 'react-native-reanimated';
 
 const imageSrc = require('../assets/images/chat.png');
 
@@ -20,16 +25,32 @@ export const JokeDisplayer: React.FC = () => {
   const { joke } = useAppContext();
   const { handleFetchNewJoke } = useAppContext();
   const { handleSave } = useAppContext();
-  const onGestureEvent = useCallback((event: PanGestureHandlerGestureEvent) => {
-    console.warn(event.nativeEvent.translationX);
-  }, []);
+
+  const offset = useSharedValue(0);
+  const animatedStyles = useAnimatedStyle(() => ({
+    transform: [{ translateX: offset.value }],
+  }));
+
+  const onGestureEvent = useCallback(
+    (event: PanGestureHandlerGestureEvent) => {
+      const xVal = Math.floor(event.nativeEvent.translationX);
+      offset.value = xVal;
+    },
+    [offset],
+  );
+
+  const onHandlerStateChange = useCallback(() => {
+    offset.value = withTiming(0);
+  }, [offset]);
+
   return (
     <PanGestureHandler
       minDeltaX={1}
       minDeltaY={100}
       onGestureEvent={onGestureEvent}
+      onHandlerStateChange={onHandlerStateChange}
     >
-      <View style={styles.speechBubbleContainer}>
+      <Animated.View style={[styles.speechBubbleContainer, animatedStyles]}>
         <ImageBackground source={imageSrc} style={styles.speechBubble}>
           <View style={styles.jokeContainer}>
             <Text style={styles.jokeTitle}>Here's a joke for you:</Text>
@@ -44,7 +65,7 @@ export const JokeDisplayer: React.FC = () => {
             </TouchableOpacity>
           </View>
         </ImageBackground>
-      </View>
+      </Animated.View>
     </PanGestureHandler>
   );
 };
