@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   joke: {
     textAlign: 'center',
     padding: 5,
-    fontSize: 22,
+    fontSize: 20,
   },
   jokeTitle: {
     textAlign: 'center',
