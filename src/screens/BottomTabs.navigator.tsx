@@ -14,8 +14,8 @@ export const BottomTabs: React.FC = () => {
     <Tab.Navigator
       screenOptions={({ route }) => {
         return {
-          tabBarActiveTintColor: '#1D84B5',
-          tabBarInactiveTintColor: '#8E9AAF',
+          tabBarActiveTintColor: '#e38d1c',
+          tabBarInactiveTintColor: '#a0c4f3',
           tabBarShowLabel: false,
           tabBarIcon: ({ color, size }) => {
             if (route.name === 'NewJokes') {
