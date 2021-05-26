@@ -3,6 +3,11 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { JokeWithTimeStamp } from '../types';
 import { DiscardJokeIcon } from '../components/DiscardJoke.icon';
 import { useAppContext } from '../App.provider';
+import {
+  PanGestureHandler,
+  PanGestureHandlerGestureEvent,
+} from 'react-native-gesture-handler';
+import { useCallback } from 'react';
 
 type JokeItemRowProps = {
   jokeObject: JokeWithTimeStamp;
@@ -10,13 +15,22 @@ type JokeItemRowProps = {
 
 export const SavedJokeListItem: React.FC<JokeItemRowProps> = (jokeItem) => {
   const { handleDeleteJoke } = useAppContext();
+  const onGestureEvent = useCallback((event: PanGestureHandlerGestureEvent) => {
+    console.warn(event.nativeEvent.translationX);
+  }, []);
   return (
-    <View style={styles.jokeContainer}>
-      <Text style={styles.joke}>{jokeItem.jokeObject.joke}</Text>
-      <TouchableOpacity onPress={() => handleDeleteJoke(jokeItem.jokeObject)}>
-        <DiscardJokeIcon size={30} color={'red'} />
-      </TouchableOpacity>
-    </View>
+    <PanGestureHandler
+      minDeltaX={1}
+      minDeltaY={100}
+      onGestureEvent={onGestureEvent}
+    >
+      <View style={styles.jokeContainer}>
+        <Text style={styles.joke}>{jokeItem.jokeObject.joke}</Text>
+        <TouchableOpacity onPress={() => handleDeleteJoke(jokeItem.jokeObject)}>
+          <DiscardJokeIcon size={30} color={'red'} />
+        </TouchableOpacity>
+      </View>
+    </PanGestureHandler>
   );
 };
 
