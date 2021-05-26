@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import {
   ImageBackground,
   View,
@@ -27,6 +27,10 @@ export const JokeDisplayer: React.FC = () => {
   const { handleSave } = useAppContext();
 
   const offset = useSharedValue(0);
+  const maxPan = 100;
+  const [shouldSave, setShouldSave] = useState(false);
+  const [shouldDiscard, setShouldDiscard] = useState(false);
+
   const animatedStyles = useAnimatedStyle(() => ({
     transform: [{ translateX: offset.value }],
   }));
