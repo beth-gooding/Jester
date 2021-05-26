@@ -17,6 +17,8 @@ export const BottomTabs: React.FC = () => {
           tabBarActiveTintColor: '#e38d1c',
           tabBarInactiveTintColor: '#a0c4f3',
           tabBarShowLabel: false,
+          headerTitleAlign: 'center',
+          headerTitleStyle: { fontWeight: 'bold' },
           tabBarIcon: ({ color, size }) => {
             if (route.name === 'NewJokes') {
               return <AddJokeIcon size={size} color={color} />;
@@ -35,17 +37,17 @@ export const BottomTabs: React.FC = () => {
       <Tab.Screen
         name="NewJokes"
         component={NewJokesTab}
-        options={{ title: 'Add New Jokes' }}
+        options={{ title: 'New Jokes' }}
       />
       <Tab.Screen
         name="SavedJokes"
         component={SavedJokesTab}
-        options={{ title: 'Your Saved Jokes' }}
+        options={{ title: 'Saved Jokes' }}
       />
       <Tab.Screen
         name="Stats"
         component={StatsTab}
-        options={{ title: 'Your Joke Stats' }}
+        options={{ title: 'Joke Stats' }}
       />
     </Tab.Navigator>
   );
