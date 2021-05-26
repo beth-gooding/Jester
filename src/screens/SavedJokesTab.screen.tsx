@@ -27,8 +27,8 @@ export const SavedJokesTab: React.FC = () => {
       keyExtractor={(item) => item.day}
       data={daysWithJokes}
       renderItem={({ item }) => (
-        <View>
-          <Text>{item.day}</Text>
+        <View style={styles.dayContainer}>
+          <Text style={styles.title}>{item.day}</Text>
           {item.jokesInDay.map((joke: JokeWithTimeStamp) => (
             <SavedJokeListItem jokeObject={joke} key={joke.timestamp} />
           ))}
@@ -45,18 +45,23 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   listContainer: {
-    backgroundColor: 'white',
-  },
-  jokeContainer: {
-    backgroundColor: 'white',
-    borderWidth: 2,
-    borderRadius: 15,
-    margin: 5,
-    padding: 5,
+    backgroundColor: '#1C72E3',
   },
   joke: {
     textAlign: 'center',
     paddingVertical: 5,
     fontWeight: 'bold',
+  },
+  title: {
+    fontWeight: 'bold',
+    textAlign: 'center',
+    fontSize: 20,
+    paddingVertical: 15,
+  },
+  dayContainer: {
+    margin: 10,
+    borderWidth: 2,
+    borderRadius: 15,
+    backgroundColor: '#e38d1c',
   },
 });
