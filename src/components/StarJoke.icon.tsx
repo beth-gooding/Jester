@@ -8,7 +8,7 @@ type StarJokeIconProps = {
 
 export const StarJokeIcon: React.FC<StarJokeIconProps> = ({
   color = '#e38d1c',
-  size = 100,
+  size = 80,
 }) => {
   return (
     <Svg width={size} height={size} fill={color} viewBox="0 0 49.94 49.94">

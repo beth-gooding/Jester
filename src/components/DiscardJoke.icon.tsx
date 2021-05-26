@@ -8,7 +8,7 @@ type DiscardJokeIconProps = {
 
 export const DiscardJokeIcon: React.FC<DiscardJokeIconProps> = ({
   color = '#1C72E3',
-  size = 110,
+  size = 90,
 }) => {
   return (
     <Svg width={size} height={size} fill={color} viewBox="0 0 24 24">

@@ -23,6 +23,7 @@ export const Drawer: React.FC<DrawerProps> = ({ title, children }) => {
       <TouchableOpacity
         style={styles.drawerContainer}
         onPress={handleToggleOpen}
+        activeOpacity={0.9}
       >
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.title}>{isOpen ? '-  ' : '+  '}</Text>
