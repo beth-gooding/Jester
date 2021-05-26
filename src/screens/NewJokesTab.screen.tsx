@@ -12,6 +12,8 @@ import { StarJokeIcon } from '../components/StarJoke.icon';
 import { DiscardJokeIcon } from '../components/DiscardJoke.icon';
 
 const imageSrc = require('../assets/images/chat.png');
+const networkImageUrl =
+  'https://images.unsplash.com/photo-1485550409059-9afb054cada4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=802&q=80';
 
 export const NewJokesTab: React.FC = () => {
   const { joke } = useAppContext();
@@ -23,7 +25,10 @@ export const NewJokesTab: React.FC = () => {
   }, [handleFetchNewJoke]);
 
   return (
-    <View style={styles.jokeJenerator}>
+    <ImageBackground
+      source={{ uri: networkImageUrl }}
+      style={styles.jokeJenerator}
+    >
       <ImageBackground source={imageSrc} style={styles.speechBubble}>
         <View style={styles.jokeContainer}>
           <Text style={styles.jokeTitle}>Here's a joke for you:</Text>
@@ -38,7 +43,7 @@ export const NewJokesTab: React.FC = () => {
           </TouchableOpacity>
         </View>
       </ImageBackground>
-    </View>
+    </ImageBackground>
   );
 };
 
