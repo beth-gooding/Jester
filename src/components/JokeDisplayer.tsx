@@ -61,17 +61,13 @@ export const JokeDisplayer: React.FC = () => {
       if (event.nativeEvent.state === GestureState.END) {
         if (shouldSave) {
           offset.value = withTiming(Math.sign(offset.value) * 2000);
-          setTimeout(() => {
-            handleSave(joke);
-          }, 250);
+          handleSave(joke);
           setTimeout(() => {
             offset.value = withTiming(0);
           }, 300);
         } else if (shouldDiscard) {
           offset.value = withTiming(Math.sign(offset.value) * 2000);
-          setTimeout(() => {
-            handleFetchNewJoke();
-          }, 250);
+          handleFetchNewJoke();
           setTimeout(() => {
             offset.value = withTiming(0);
           }, 300);
