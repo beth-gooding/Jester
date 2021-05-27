@@ -112,7 +112,7 @@ export const JokeDisplayer: React.FC = () => {
 const styles = StyleSheet.create({
   joke: {
     textAlign: 'center',
-    padding: 5,
+    paddingHorizontal: 5,
     fontSize: 20,
     fontFamily: 'TitilliumWeb-Regular',
   },
