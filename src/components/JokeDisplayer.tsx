@@ -5,6 +5,7 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
+  LayoutAnimation,
 } from 'react-native';
 import { DiscardJokeIcon } from './DiscardJoke.icon';
 import { StarJokeIcon } from './StarJoke.icon';
@@ -12,6 +13,8 @@ import { useAppContext } from '../App.provider';
 import {
   PanGestureHandler,
   PanGestureHandlerGestureEvent,
+  PanGestureHandlerStateChangeEvent,
+  State as GestureState,
 } from 'react-native-gesture-handler';
 import Animated, {
   useAnimatedStyle,
@@ -39,13 +42,35 @@ export const JokeDisplayer: React.FC = () => {
     (event: PanGestureHandlerGestureEvent) => {
       const xVal = Math.floor(event.nativeEvent.translationX);
       offset.value = xVal;
+
+      if (xVal >= maxPan) {
+        setShouldSave(true);
+        setShouldDiscard(false);
+      } else if (xVal <= -maxPan) {
+        setShouldDiscard(true);
+        setShouldSave(false);
+      } else {
+        setShouldDiscard(false);
+        setShouldSave(false);
+      }
     },
     [offset],
   );
 
-  const onHandlerStateChange = useCallback(() => {
-    offset.value = withTiming(0);
-  }, [offset]);
+  const onHandlerStateChange = useCallback(
+    (event: PanGestureHandlerStateChangeEvent) => {
+      if (event.nativeEvent.state === GestureState.END) {
+        if (shouldSave || shouldDiscard) {
+          console.warn('Saving or Discarding');
+          offset.value = withTiming(Math.sign(offset.value) * 2000);
+          LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+        } else {
+          offset.value = withTiming(0);
+        }
+      }
+    },
+    [offset, shouldDiscard, shouldSave],
+  );
 
   return (
     <PanGestureHandler
@@ -61,11 +86,11 @@ export const JokeDisplayer: React.FC = () => {
             <Text style={styles.joke}>{joke}</Text>
           </View>
           <View style={styles.btnContainer}>
-            <TouchableOpacity onPress={() => handleSave(joke)}>
-              <StarJokeIcon />
-            </TouchableOpacity>
             <TouchableOpacity onPress={handleFetchNewJoke}>
               <DiscardJokeIcon />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => handleSave(joke)}>
+              <StarJokeIcon />
             </TouchableOpacity>
           </View>
         </ImageBackground>
