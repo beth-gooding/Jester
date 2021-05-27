@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     paddingVertical: 15,
     fontFamily: 'TitilliumWeb-Bold',
+    color: '#1C72E3',
   },
   drawerContainer: {
     flexDirection: 'row',

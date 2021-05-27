@@ -18,7 +18,10 @@ export const BottomTabs: React.FC = () => {
           tabBarInactiveTintColor: '#a0c4f3',
           tabBarShowLabel: false,
           headerTitleAlign: 'center',
-          headerTitleStyle: { fontFamily: 'TitilliumWeb-Bold' },
+          headerTitleStyle: {
+            fontFamily: 'TitilliumWeb-Bold',
+            color: '#1C72E3',
+          },
           tabBarIcon: ({ color, size }) => {
             if (route.name === 'NewJokes') {
               return <AddJokeIcon size={size} color={color} />;

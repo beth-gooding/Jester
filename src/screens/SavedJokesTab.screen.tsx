@@ -49,15 +49,11 @@ const styles = StyleSheet.create({
   listContainer: {
     backgroundColor: '#febd00',
   },
-  joke: {
-    textAlign: 'center',
-    paddingVertical: 5,
-    fontWeight: 'bold',
-  },
   dayContainer: {
     margin: 10,
     borderWidth: 2,
     borderRadius: 15,
+    borderColor: '#1C72E3',
     backgroundColor: 'white',
   },
 });
