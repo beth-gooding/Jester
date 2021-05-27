@@ -13,6 +13,7 @@ import {
   PanGestureHandler,
   PanGestureHandlerGestureEvent,
   PanGestureHandlerStateChangeEvent,
+  ScrollView,
   State as GestureState,
 } from 'react-native-gesture-handler';
 import Animated, {
@@ -90,7 +91,9 @@ export const JokeDisplayer: React.FC = () => {
         <ImageBackground source={imageSrc} style={styles.speechBubble}>
           <View style={styles.jokeContainer}>
             <Text style={styles.jokeTitle}>Here's a joke for you:</Text>
-            <Text style={styles.joke}>{joke}</Text>
+            <ScrollView overScrollMode={'always'}>
+              <Text style={styles.joke}>{joke}</Text>
+            </ScrollView>
           </View>
           <View style={styles.btnContainer}>
             <TouchableOpacity onPress={handleFetchNewJoke}>
@@ -110,7 +113,7 @@ const styles = StyleSheet.create({
   joke: {
     textAlign: 'center',
     padding: 5,
-    fontSize: 20,
+    fontSize: 22,
   },
   jokeTitle: {
     textAlign: 'center',
@@ -125,6 +128,7 @@ const styles = StyleSheet.create({
   },
   jokeContainer: {
     margin: 5,
+    maxHeight: 160,
   },
   speechBubble: {
     height: 350,
