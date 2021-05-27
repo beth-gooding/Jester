@@ -60,16 +60,20 @@ export const JokeDisplayer: React.FC = () => {
   const onHandlerStateChange = useCallback(
     (event: PanGestureHandlerStateChangeEvent) => {
       if (event.nativeEvent.state === GestureState.END) {
-        if (shouldSave || shouldDiscard) {
-          console.warn('Saving or Discarding');
+        if (shouldSave) {
           offset.value = withTiming(Math.sign(offset.value) * 2000);
           LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+          handleSave(joke);
+        } else if (shouldDiscard) {
+          offset.value = withTiming(Math.sign(offset.value) * 2000);
+          LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+          handleFetchNewJoke();
         } else {
           offset.value = withTiming(0);
         }
       }
     },
-    [offset, shouldDiscard, shouldSave],
+    [handleFetchNewJoke, handleSave, joke, offset, shouldDiscard, shouldSave],
   );
 
   return (
