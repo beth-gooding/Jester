@@ -5,7 +5,6 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  LayoutAnimation,
 } from 'react-native';
 import { DiscardJokeIcon } from './DiscardJoke.icon';
 import { StarJokeIcon } from './StarJoke.icon';
@@ -62,12 +61,20 @@ export const JokeDisplayer: React.FC = () => {
       if (event.nativeEvent.state === GestureState.END) {
         if (shouldSave) {
           offset.value = withTiming(Math.sign(offset.value) * 2000);
-          LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-          handleSave(joke);
+          setTimeout(() => {
+            handleSave(joke);
+          }, 250);
+          setTimeout(() => {
+            offset.value = withTiming(0);
+          }, 300);
         } else if (shouldDiscard) {
           offset.value = withTiming(Math.sign(offset.value) * 2000);
-          LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-          handleFetchNewJoke();
+          setTimeout(() => {
+            handleFetchNewJoke();
+          }, 250);
+          setTimeout(() => {
+            offset.value = withTiming(0);
+          }, 300);
         } else {
           offset.value = withTiming(0);
         }
