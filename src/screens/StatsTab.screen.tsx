@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { VictoryBar, VictoryChart, VictoryAxis } from 'victory-native';
 import { useAppContext } from '../App.provider';
 import groupBy from 'lodash/groupBy';
@@ -22,6 +22,7 @@ export const StatsTab: React.FC = () => {
   return (
     <View style={styles.jokeJenerator}>
       <View style={styles.container}>
+        <Text>Some nice graphs</Text>
         <VictoryChart
           width={350}
           height={400}
