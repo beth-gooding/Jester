@@ -20,6 +20,7 @@ export const BottomTabs: React.FC = () => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontFamily: 'TitilliumWeb-Bold',
+            fontSize: 25,
             color: '#1C72E3',
           },
           tabBarIcon: ({ color, size }) => {
