@@ -14,6 +14,17 @@
 		2C96D20251555E5BBA634FAC /* libPods-JokeJenerator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB7A5320DA8AB5C12708709 /* libPods-JokeJenerator.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		EB76DA157B28B68F16390D3F /* libPods-JokeJenerator-JokeJeneratorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF347CD0E1149FEF5D7E40E6 /* libPods-JokeJenerator-JokeJeneratorTests.a */; };
+		AEE6F9B8A793454C84CF58C9 /* TitilliumWeb-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0524CB45CFFE4CD98E81C11A /* TitilliumWeb-Black.ttf */; };
+		66F4BBA851EF477687451418 /* TitilliumWeb-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F3651F1AF4D43E596143B6C /* TitilliumWeb-Bold.ttf */; };
+		95B8F86402F045428B14CD15 /* TitilliumWeb-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AB96E29695E49A89BF9EB1F /* TitilliumWeb-BoldItalic.ttf */; };
+		43B13411A7DA467D8B9C9B41 /* TitilliumWeb-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A8EB660DB4844B9A653AC09 /* TitilliumWeb-ExtraLight.ttf */; };
+		A1BF7D3450E74CD4B1418604 /* TitilliumWeb-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CF44CA223D3430AAD967846 /* TitilliumWeb-ExtraLightItalic.ttf */; };
+		410B47DCE41A42DC9C825326 /* TitilliumWeb-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5E2FF866ACC405ABC7FB49C /* TitilliumWeb-Italic.ttf */; };
+		F7642695BE8247078E4D6319 /* TitilliumWeb-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33E72E2574B4482481C9E405 /* TitilliumWeb-Light.ttf */; };
+		C6502E9A383948A89C69A68D /* TitilliumWeb-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0C26AF4D034D4A56858144D5 /* TitilliumWeb-LightItalic.ttf */; };
+		DBC5C8932BC447A084296B8D /* TitilliumWeb-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E45D65F72C994A80ACD1A6BC /* TitilliumWeb-Regular.ttf */; };
+		91B51AC4CCA64C6AAFA3647B /* TitilliumWeb-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11DF4B208A454CE58BF312B4 /* TitilliumWeb-SemiBold.ttf */; };
+		BC3441540D8E464E8922BCC2 /* TitilliumWeb-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 46C8AA75E5A24E31B5C16288 /* TitilliumWeb-SemiBoldItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +55,17 @@
 		DC579151CE964D88688D511D /* Pods-JokeJenerator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JokeJenerator.release.xcconfig"; path = "Target Support Files/Pods-JokeJenerator/Pods-JokeJenerator.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F3F6246B937F962F0AFAA1E8 /* Pods-JokeJenerator-JokeJeneratorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JokeJenerator-JokeJeneratorTests.release.xcconfig"; path = "Target Support Files/Pods-JokeJenerator-JokeJeneratorTests/Pods-JokeJenerator-JokeJeneratorTests.release.xcconfig"; sourceTree = "<group>"; };
+		0524CB45CFFE4CD98E81C11A /* TitilliumWeb-Black.ttf */ = {isa = PBXFileReference; name = "TitilliumWeb-Black.ttf"; path = "../src/assets/fonts/TitilliumWeb-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4F3651F1AF4D43E596143B6C /* TitilliumWeb-Bold.ttf */ = {isa = PBXFileReference; name = "TitilliumWeb-Bold.ttf"; path = "../src/assets/fonts/TitilliumWeb-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3AB96E29695E49A89BF9EB1F /* TitilliumWeb-BoldItalic.ttf */ = {isa = PBXFileReference; name = "TitilliumWeb-BoldItalic.ttf"; path = "../src/assets/fonts/TitilliumWeb-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5A8EB660DB4844B9A653AC09 /* TitilliumWeb-ExtraLight.ttf */ = {isa = PBXFileReference; name = "TitilliumWeb-ExtraLight.ttf"; path = "../src/assets/fonts/TitilliumWeb-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6CF44CA223D3430AAD967846 /* TitilliumWeb-ExtraLightItalic.ttf */ = {isa = PBXFileReference; name = "TitilliumWeb-ExtraLightItalic.ttf"; path = "../src/assets/fonts/TitilliumWeb-ExtraLightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E5E2FF866ACC405ABC7FB49C /* TitilliumWeb-Italic.ttf */ = {isa = PBXFileReference; name = "TitilliumWeb-Italic.ttf"; path = "../src/assets/fonts/TitilliumWeb-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		33E72E2574B4482481C9E405 /* TitilliumWeb-Light.ttf */ = {isa = PBXFileReference; name = "TitilliumWeb-Light.ttf"; path = "../src/assets/fonts/TitilliumWeb-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0C26AF4D034D4A56858144D5 /* TitilliumWeb-LightItalic.ttf */ = {isa = PBXFileReference; name = "TitilliumWeb-LightItalic.ttf"; path = "../src/assets/fonts/TitilliumWeb-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E45D65F72C994A80ACD1A6BC /* TitilliumWeb-Regular.ttf */ = {isa = PBXFileReference; name = "TitilliumWeb-Regular.ttf"; path = "../src/assets/fonts/TitilliumWeb-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		11DF4B208A454CE58BF312B4 /* TitilliumWeb-SemiBold.ttf */ = {isa = PBXFileReference; name = "TitilliumWeb-SemiBold.ttf"; path = "../src/assets/fonts/TitilliumWeb-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		46C8AA75E5A24E31B5C16288 /* TitilliumWeb-SemiBoldItalic.ttf */ = {isa = PBXFileReference; name = "TitilliumWeb-SemiBoldItalic.ttf"; path = "../src/assets/fonts/TitilliumWeb-SemiBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +155,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				2E290ADDAC4B7C0838FED79F /* Pods */,
+				0FC12D5ABC2249D3A5588273 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +170,25 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		0FC12D5ABC2249D3A5588273 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				0524CB45CFFE4CD98E81C11A /* TitilliumWeb-Black.ttf */,
+				4F3651F1AF4D43E596143B6C /* TitilliumWeb-Bold.ttf */,
+				3AB96E29695E49A89BF9EB1F /* TitilliumWeb-BoldItalic.ttf */,
+				5A8EB660DB4844B9A653AC09 /* TitilliumWeb-ExtraLight.ttf */,
+				6CF44CA223D3430AAD967846 /* TitilliumWeb-ExtraLightItalic.ttf */,
+				E5E2FF866ACC405ABC7FB49C /* TitilliumWeb-Italic.ttf */,
+				33E72E2574B4482481C9E405 /* TitilliumWeb-Light.ttf */,
+				0C26AF4D034D4A56858144D5 /* TitilliumWeb-LightItalic.ttf */,
+				E45D65F72C994A80ACD1A6BC /* TitilliumWeb-Regular.ttf */,
+				11DF4B208A454CE58BF312B4 /* TitilliumWeb-SemiBold.ttf */,
+				46C8AA75E5A24E31B5C16288 /* TitilliumWeb-SemiBoldItalic.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -242,6 +284,17 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				AEE6F9B8A793454C84CF58C9 /* TitilliumWeb-Black.ttf in Resources */,
+				66F4BBA851EF477687451418 /* TitilliumWeb-Bold.ttf in Resources */,
+				95B8F86402F045428B14CD15 /* TitilliumWeb-BoldItalic.ttf in Resources */,
+				43B13411A7DA467D8B9C9B41 /* TitilliumWeb-ExtraLight.ttf in Resources */,
+				A1BF7D3450E74CD4B1418604 /* TitilliumWeb-ExtraLightItalic.ttf in Resources */,
+				410B47DCE41A42DC9C825326 /* TitilliumWeb-Italic.ttf in Resources */,
+				F7642695BE8247078E4D6319 /* TitilliumWeb-Light.ttf in Resources */,
+				C6502E9A383948A89C69A68D /* TitilliumWeb-LightItalic.ttf in Resources */,
+				DBC5C8932BC447A084296B8D /* TitilliumWeb-Regular.ttf in Resources */,
+				91B51AC4CCA64C6AAFA3647B /* TitilliumWeb-SemiBold.ttf in Resources */,
+				BC3441540D8E464E8922BCC2 /* TitilliumWeb-SemiBoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

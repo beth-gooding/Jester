@@ -7,7 +7,7 @@ type StarJokeIconProps = {
 };
 
 export const StarJokeIcon: React.FC<StarJokeIconProps> = ({
-  color = '#e38d1c',
+  color = '#febd00',
   size = 80,
 }) => {
   return (

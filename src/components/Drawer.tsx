@@ -35,10 +35,10 @@ export const Drawer: React.FC<DrawerProps> = ({ title, children }) => {
 
 const styles = StyleSheet.create({
   title: {
-    fontWeight: 'bold',
     textAlign: 'center',
     fontSize: 20,
     paddingVertical: 15,
+    fontFamily: 'TitilliumWeb-Bold',
   },
   drawerContainer: {
     flexDirection: 'row',

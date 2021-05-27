@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   listContainer: {
-    backgroundColor: '#1C72E3',
+    backgroundColor: '#febd00',
   },
   joke: {
     textAlign: 'center',
@@ -58,6 +58,6 @@ const styles = StyleSheet.create({
     margin: 10,
     borderWidth: 2,
     borderRadius: 15,
-    backgroundColor: '#e38d1c',
+    backgroundColor: 'white',
   },
 });

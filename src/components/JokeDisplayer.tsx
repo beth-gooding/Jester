@@ -113,12 +113,13 @@ const styles = StyleSheet.create({
   joke: {
     textAlign: 'center',
     padding: 5,
-    fontSize: 22,
+    fontSize: 20,
+    fontFamily: 'TitilliumWeb-Regular',
   },
   jokeTitle: {
     textAlign: 'center',
     padding: 5,
-    fontWeight: 'bold',
+    fontFamily: 'TitilliumWeb-Bold',
     fontSize: 18,
   },
   btnContainer: {

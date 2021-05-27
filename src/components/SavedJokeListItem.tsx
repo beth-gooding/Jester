@@ -77,7 +77,7 @@ export const SavedJokeListItem: React.FC<JokeItemRowProps> = (jokeItem) => {
       <Animated.View style={[styles.jokeContainer, animatedStyles]}>
         <Text style={styles.joke}>{jokeItem.jokeObject.joke}</Text>
         <TouchableOpacity onPress={() => handleDeleteJoke(jokeItem.jokeObject)}>
-          <DiscardJokeIcon size={30} color={'red'} />
+          <DiscardJokeIcon size={30} color={'black'} />
         </TouchableOpacity>
       </Animated.View>
     </PanGestureHandler>
@@ -86,7 +86,7 @@ export const SavedJokeListItem: React.FC<JokeItemRowProps> = (jokeItem) => {
 
 const styles = StyleSheet.create({
   jokeContainer: {
-    backgroundColor: 'white',
+    backgroundColor: '#febd00',
     borderWidth: 2,
     borderRadius: 15,
     margin: 5,
@@ -96,6 +96,6 @@ const styles = StyleSheet.create({
   joke: {
     textAlign: 'center',
     paddingVertical: 5,
-    fontWeight: 'bold',
+    fontFamily: 'TitilliumWeb-SemiBold',
   },
 });

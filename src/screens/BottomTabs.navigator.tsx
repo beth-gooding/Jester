@@ -14,11 +14,11 @@ export const BottomTabs: React.FC = () => {
     <Tab.Navigator
       screenOptions={({ route }) => {
         return {
-          tabBarActiveTintColor: '#e38d1c',
+          tabBarActiveTintColor: '#febd00',
           tabBarInactiveTintColor: '#a0c4f3',
           tabBarShowLabel: false,
           headerTitleAlign: 'center',
-          headerTitleStyle: { fontWeight: 'bold' },
+          headerTitleStyle: { fontFamily: 'TitilliumWeb-Bold' },
           tabBarIcon: ({ color, size }) => {
             if (route.name === 'NewJokes') {
               return <AddJokeIcon size={size} color={color} />;
