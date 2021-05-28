@@ -21,7 +21,7 @@ export const SavedByHour: React.FC = () => {
   }, [savedJokes]);
 
   return (
-    <View style={styles.dayContainer}>
+    <View style={styles.graphContainer}>
       <Drawer title={'Overall Number of Jokes \n Saved Per Hour'}>
         <VictoryPie
           data={data}
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  dayContainer: {
+  graphContainer: {
     margin: 10,
     borderWidth: 2,
     borderRadius: 15,

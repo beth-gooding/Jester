@@ -21,10 +21,10 @@ export const SavedByDay: React.FC = () => {
   }, [savedJokes]);
 
   return (
-    <View style={styles.dayContainer}>
-      <Drawer title={'Number of Jokes Saved Each Day'}>
+    <View style={styles.graphContainer}>
+      <Drawer title={'Number of Jokes \n Saved Each Day'}>
         <VictoryChart
-          width={350}
+          width={300}
           height={400}
           domainPadding={{ x: 15, y: 5 }}
           style={{ background: { fill: 'white' } }}
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 21,
   },
-  dayContainer: {
+  graphContainer: {
     margin: 10,
     borderWidth: 2,
     borderRadius: 15,
