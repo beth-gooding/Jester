@@ -17,6 +17,7 @@ export const StatsTab: React.FC = () => {
         <ScrollView style={styles.scrollContainer}>
           <SavedByDay />
           <SavedByHour />
+          <View style={styles.spacer} />
         </ScrollView>
       </View>
     </ImageBackground>
@@ -40,5 +41,8 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     paddingTop: 15,
+  },
+  spacer: {
+    paddingVertical: 20,
   },
 });
