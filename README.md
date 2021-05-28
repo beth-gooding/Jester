@@ -1,2 +1,2 @@
-# JokeJenerator
+# Jester
 React Native Mini Project
