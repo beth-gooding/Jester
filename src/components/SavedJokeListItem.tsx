@@ -68,6 +68,11 @@ export const SavedJokeListItem: React.FC<JokeItemRowProps> = (jokeItem) => {
     [handleDeleteJoke, offset, jokeItem, shouldDelete],
   );
 
+  const handleDeleteSmoothly = (jokeItem2: JokeItemRowProps) => {
+    handleDeleteJoke(jokeItem2.jokeObject);
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+  };
+
   return (
     <PanGestureHandler
       minDeltaX={1}
@@ -82,7 +87,9 @@ export const SavedJokeListItem: React.FC<JokeItemRowProps> = (jokeItem) => {
             Saved at {format(new Date(jokeItem.jokeObject.timestamp), 'HH:mm')}
           </Text>
           <TouchableOpacity
-            onPress={() => handleDeleteJoke(jokeItem.jokeObject)}
+            onPress={() => {
+              handleDeleteSmoothly(jokeItem);
+            }}
           >
             <DiscardJokeIcon size={30} />
           </TouchableOpacity>

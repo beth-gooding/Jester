@@ -15,8 +15,8 @@ export const SavedByHour: React.FC = () => {
     const groupedJokes = groupBy(orderedJokes, (item) =>
       format(new Date(item.timestamp), 'HH'),
     );
-    return Object.entries(groupedJokes).map(([day, jokesInHour]) => ({
-      x: day,
+    return Object.entries(groupedJokes).map(([hour, jokesInHour]) => ({
+      x: hour,
       y: jokesInHour.length,
     }));
   }, [savedJokes]);
@@ -27,11 +27,19 @@ export const SavedByHour: React.FC = () => {
         <VictoryPie
           data={data}
           width={300}
-          innerRadius={40}
+          innerRadius={30}
           colorScale={'blue'}
           animate={{
             easing: 'exp',
           }}
+          labels={({ datum }) => `${datum.x}:00`}
+          labelRadius={105}
+          labelPlacement={'parallel'}
+          style={{
+            data: { stroke: 'white', strokeWidth: 2 },
+            labels: { fill: '#1C72E3', fontSize: 16 },
+          }}
+          padAngle={0}
         />
       </Drawer>
     </View>
