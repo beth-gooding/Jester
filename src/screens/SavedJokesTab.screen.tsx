@@ -57,14 +57,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  // listContainer: {
-  //   backgroundColor: '#febd00',
-  // },
   dayContainer: {
     margin: 10,
     borderWidth: 2,
     borderRadius: 15,
     borderColor: '#1C72E3',
     backgroundColor: 'white',
+    opacity: 0.85,
   },
 });
