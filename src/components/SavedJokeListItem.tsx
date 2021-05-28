@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import {
   LayoutAnimation,
   StyleSheet,
   Text,
   TouchableOpacity,
+  View,
 } from 'react-native';
 import { JokeWithTimeStamp } from '../types';
 import { DiscardJokeIcon } from '../components/DiscardJoke.icon';
@@ -14,12 +15,12 @@ import {
   PanGestureHandlerStateChangeEvent,
   State as GestureState,
 } from 'react-native-gesture-handler';
-import { useCallback } from 'react';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
+import { format } from 'date-fns';
 
 type JokeItemRowProps = {
   jokeObject: JokeWithTimeStamp;
@@ -76,9 +77,16 @@ export const SavedJokeListItem: React.FC<JokeItemRowProps> = (jokeItem) => {
     >
       <Animated.View style={[styles.jokeContainer, animatedStyles]}>
         <Text style={styles.joke}>{jokeItem.jokeObject.joke}</Text>
-        <TouchableOpacity onPress={() => handleDeleteJoke(jokeItem.jokeObject)}>
-          <DiscardJokeIcon size={30} color={'black'} />
-        </TouchableOpacity>
+        <View style={styles.timeAndDiscard}>
+          <Text style={styles.time}>
+            Saved at {format(new Date(jokeItem.jokeObject.timestamp), 'HH:mm')}
+          </Text>
+          <TouchableOpacity
+            onPress={() => handleDeleteJoke(jokeItem.jokeObject)}
+          >
+            <DiscardJokeIcon size={30} />
+          </TouchableOpacity>
+        </View>
       </Animated.View>
     </PanGestureHandler>
   );
@@ -86,17 +94,27 @@ export const SavedJokeListItem: React.FC<JokeItemRowProps> = (jokeItem) => {
 
 const styles = StyleSheet.create({
   jokeContainer: {
+    flex: 1,
     backgroundColor: '#febd00',
     borderWidth: 2,
     borderRadius: 15,
     borderColor: '#1C72E3',
     margin: 5,
     padding: 5,
-    alignItems: 'center',
   },
   joke: {
     textAlign: 'center',
     paddingVertical: 5,
     fontFamily: 'TitilliumWeb-SemiBold',
+    fontSize: 16,
+  },
+  timeAndDiscard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+  },
+  time: {
+    fontFamily: 'TitilliumWeb-Regular',
+    fontSize: 15,
   },
 });
