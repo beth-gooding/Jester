@@ -96,10 +96,13 @@ export const JokeDisplayer: React.FC = () => {
             </ScrollView>
           </View>
           <View style={styles.btnContainer}>
-            <TouchableOpacity onPress={handleFetchNewJoke}>
+            <TouchableOpacity onPress={handleFetchNewJoke} style={styles.btn}>
               <DiscardJokeIcon />
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => handleSave(joke)}>
+            <TouchableOpacity
+              onPress={() => handleSave(joke)}
+              style={styles.btn}
+            >
               <StarJokeIcon />
             </TouchableOpacity>
           </View>
@@ -141,5 +144,10 @@ const styles = StyleSheet.create({
     height: 350,
     aspectRatio: 1,
     alignSelf: 'center',
+  },
+  btn: {
+    shadowOffset: { width: 7, height: 7 },
+    shadowColor: 'black',
+    shadowOpacity: 0.2,
   },
 });
