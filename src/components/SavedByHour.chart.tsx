@@ -12,9 +12,19 @@ export const SavedByHour: React.FC = () => {
 
   const data = useMemo(() => {
     const orderedJokes = orderBy(savedJokes, 'timestamp', 'asc');
-    const groupedJokes = groupBy(orderedJokes, (item) =>
-      format(new Date(item.timestamp), 'HH'),
-    );
+    const groupedJokes = groupBy(orderedJokes, (item) => {
+      // eslint-disable-next-line radix
+      var hour = parseInt(format(new Date(item.timestamp), 'HH'));
+      if (hour >= 0 && hour < 6) {
+        return 'Night';
+      } else if (hour >= 6 && hour <= 12) {
+        return 'Morning';
+      } else if (hour >= 12 && hour <= 18) {
+        return 'Afternoon';
+      } else {
+        return 'Evening';
+      }
+    });
     return Object.entries(groupedJokes).map(([hour, jokesInHour]) => ({
       x: hour,
       y: jokesInHour.length,
@@ -32,7 +42,7 @@ export const SavedByHour: React.FC = () => {
           animate={{
             easing: 'exp',
           }}
-          labels={({ datum }) => `${datum.x}:00`}
+          labels={({ datum }) => `${datum.x}`}
           labelRadius={105}
           labelPlacement={'parallel'}
           style={{
