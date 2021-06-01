@@ -43,11 +43,11 @@ export const SavedByHour: React.FC = () => {
             easing: 'exp',
           }}
           labels={({ datum }) => `${datum.x}`}
-          labelRadius={105}
+          labelRadius={35}
           labelPlacement={'parallel'}
           style={{
             data: { stroke: 'white', strokeWidth: 2 },
-            labels: { fill: '#1C72E3', fontSize: 16 },
+            labels: { fill: 'white', fontSize: 14 },
           }}
           padAngle={0}
         />
