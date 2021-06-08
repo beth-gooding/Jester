@@ -14,15 +14,20 @@ export const SavedByDay: React.FC = () => {
     const groupedJokes = groupBy(orderedJokes, (item) =>
       format(new Date(item.timestamp), 'dd.MM'),
     );
-    return Object.entries(groupedJokes).map(([day, jokesInDay]) => ({
-      x: day,
-      y: jokesInDay.length,
-    }));
+    const numberOfJokes = Object.keys(groupedJokes).length;
+    return Object.entries(groupedJokes)
+      .slice(numberOfJokes - 4, numberOfJokes)
+      .map(([day, jokesInDay]) => ({
+        x: day,
+        y: jokesInDay.length,
+      }));
   }, [savedJokes]);
 
   return (
     <View style={styles.graphContainer}>
-      <Drawer title={'Number of Jokes \n Saved Each Day'}>
+      <Drawer
+        title={'Number of Jokes \n Saved on the Last \n Four Active Days'}
+      >
         <VictoryChart
           width={300}
           height={400}
