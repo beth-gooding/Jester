@@ -91,7 +91,11 @@ export const JokeDisplayer: React.FC = () => {
         <ImageBackground source={imageSrc} style={styles.speechBubble}>
           <View style={styles.jokeContainer}>
             <Text style={styles.jokeTitle}>Here's a joke for you:</Text>
-            <ScrollView overScrollMode={'always'}>
+            <ScrollView
+              overScrollMode={'always'}
+              persistentScrollbar={true}
+              showsVerticalScrollIndicator={true}
+            >
               <Text style={styles.joke}>{joke}</Text>
             </ScrollView>
           </View>
