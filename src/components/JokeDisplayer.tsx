@@ -96,14 +96,15 @@ export const JokeDisplayer: React.FC = () => {
             </ScrollView>
           </View>
           <View style={styles.btnContainer}>
-            <TouchableOpacity onPress={handleFetchNewJoke} style={styles.btn}>
-              <DiscardJokeIcon />
+            <TouchableOpacity onPress={handleFetchNewJoke}>
+              <View style={styles.btn}>
+                <DiscardJokeIcon />
+              </View>
             </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => handleSave(joke)}
-              style={styles.btn}
-            >
-              <StarJokeIcon />
+            <TouchableOpacity onPress={() => handleSave(joke)}>
+              <View style={[styles.btn, styles.starBtn]}>
+                <StarJokeIcon />
+              </View>
             </TouchableOpacity>
           </View>
         </ImageBackground>
@@ -128,7 +129,7 @@ const styles = StyleSheet.create({
   btnContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    paddingBottom: 80,
+    paddingBottom: 85,
   },
   jokeContainer: {
     margin: 5,
@@ -149,5 +150,14 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 7, height: 7 },
     shadowColor: 'black',
     shadowOpacity: 0.2,
+    elevation: 2,
+    backgroundColor: 'white',
+    borderRadius: 50,
+    height: 90,
+    width: 90,
+  },
+  starBtn: {
+    paddingHorizontal: 5,
+    paddingTop: 2,
   },
 });
