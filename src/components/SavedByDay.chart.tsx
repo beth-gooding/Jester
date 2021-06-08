@@ -15,12 +15,17 @@ export const SavedByDay: React.FC = () => {
       format(new Date(item.timestamp), 'dd.MM'),
     );
     const numberOfJokes = Object.keys(groupedJokes).length;
-    return Object.entries(groupedJokes)
-      .slice(numberOfJokes - 4, numberOfJokes)
-      .map(([day, jokesInDay]) => ({
-        x: day,
-        y: jokesInDay.length,
-      }));
+    return numberOfJokes > 4
+      ? Object.entries(groupedJokes)
+          .slice(numberOfJokes - 4, numberOfJokes)
+          .map(([day, jokesInDay]) => ({
+            x: day,
+            y: jokesInDay.length,
+          }))
+      : Object.entries(groupedJokes).map(([day, jokesInDay]) => ({
+          x: day,
+          y: jokesInDay.length,
+        }));
   }, [savedJokes]);
 
   return (
