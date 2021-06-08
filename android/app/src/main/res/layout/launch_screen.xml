@@ -3,10 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <ImageView
-        android:background="@color/splash_white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/splash_white"
         android:scaleType="center"
         android:src="@drawable/launch_screen" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="191dp"
+        android:layout_height="99dp"
+        android:text="Jester"
+        android:textSize="60sp"
+        android:textStyle="bold" />
 </RelativeLayout>
