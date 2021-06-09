@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { VictoryPie } from 'victory-native';
+import { VictoryLegend, VictoryPie } from 'victory-native';
 import { useAppContext } from '../App.provider';
 import groupBy from 'lodash/groupBy';
 import orderBy from 'lodash/orderBy';
@@ -24,19 +24,34 @@ export const SavedByHour: React.FC = () => {
         return 'Evening';
       }
     });
-    return Object.entries(groupedJokes).map(([hour, jokesInHour]) => ({
-      x: hour,
+    return Object.entries(groupedJokes).map(([period, jokesInHour]) => ({
+      x: period,
       y: jokesInHour.length,
     }));
   }, [savedJokes]);
 
   return (
     <GraphContainer title={'Overall Number of Jokes \n Saved Per Hour'}>
+      <VictoryLegend
+        x={10}
+        y={10}
+        title={'Legend'}
+        centerTitle
+        orientation="vertical"
+        gutter={15}
+        style={{ border: { stroke: '#1C72E3' }, title: { fontSize: 20 } }}
+        data={[
+          { name: 'Morning', symbol: { fill: '#FEBD00', type: 'star' } },
+          { name: 'Afternoon', symbol: { fill: '#1C72E3', type: 'star' } },
+          { name: 'Evening', symbol: { fill: '#FE00C0', type: 'star' } },
+          { name: 'Night', symbol: { fill: '#00FE3E', type: 'star' } },
+        ]}
+      />
       <VictoryPie
         data={data}
         width={300}
         innerRadius={30}
-        colorScale={'blue'}
+        colorScale={['#1C72E3', '#FEBD00', '#FE00C0', '#00FE3E']}
         animate={{
           easing: 'exp',
         }}
