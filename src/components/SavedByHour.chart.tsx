@@ -4,8 +4,7 @@ import { useAppContext } from '../App.provider';
 import groupBy from 'lodash/groupBy';
 import orderBy from 'lodash/orderBy';
 import { format } from 'date-fns';
-import { Drawer } from './Drawer';
-import { StyleSheet, View } from 'react-native';
+import { GraphContainer } from './GraphContainer';
 
 export const SavedByHour: React.FC = () => {
   const { savedJokes } = useAppContext();
@@ -32,37 +31,24 @@ export const SavedByHour: React.FC = () => {
   }, [savedJokes]);
 
   return (
-    <View style={styles.graphContainer}>
-      <Drawer title={'Overall Number of Jokes \n Saved Per Hour'}>
-        <VictoryPie
-          data={data}
-          width={300}
-          innerRadius={30}
-          colorScale={'blue'}
-          animate={{
-            easing: 'exp',
-          }}
-          labels={({ datum }) => `${datum.x}`}
-          labelRadius={35}
-          labelPlacement={'parallel'}
-          style={{
-            data: { stroke: 'white', strokeWidth: 2 },
-            labels: { fill: 'white', fontSize: 14 },
-          }}
-          padAngle={0}
-        />
-      </Drawer>
-    </View>
+    <GraphContainer title={'Overall Number of Jokes \n Saved Per Hour'}>
+      <VictoryPie
+        data={data}
+        width={300}
+        innerRadius={30}
+        colorScale={'blue'}
+        animate={{
+          easing: 'exp',
+        }}
+        labels={({ datum }) => `${datum.x}`}
+        labelRadius={35}
+        labelPlacement={'parallel'}
+        style={{
+          data: { stroke: 'white', strokeWidth: 2 },
+          labels: { fill: 'white', fontSize: 14 },
+        }}
+        padAngle={0}
+      />
+    </GraphContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  graphContainer: {
-    margin: 10,
-    borderWidth: 2,
-    borderRadius: 15,
-    borderColor: '#1C72E3',
-    backgroundColor: 'white',
-    opacity: 0.95,
-  },
-});
