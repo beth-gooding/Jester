@@ -39,6 +39,7 @@ export const SavedByHour: React.FC = () => {
         centerTitle
         orientation="vertical"
         gutter={15}
+        padding={0}
         style={{ border: { stroke: '#1C72E3' }, title: { fontSize: 20 } }}
         data={[
           { name: 'Morning', symbol: { fill: '#FEBD00', type: 'star' } },
