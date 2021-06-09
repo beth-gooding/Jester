@@ -44,7 +44,7 @@ export const SavedByDay: React.FC = () => {
             style={{ data: { fill: '#1C72E3' } }}
             animate={{
               duration: 2000,
-              easing: 'bounce',
+              easing: 'sin',
               onLoad: { duration: 1000 },
             }}
           />
