@@ -76,8 +76,8 @@ export const SavedByDay: React.FC = () => {
                 padding: 30,
               },
               tickLabels: {
-                fontSize: 20,
-                padding: 1,
+                fontSize: 19,
+                padding: 0,
                 fontFamily: 'TitilliumWeb-Light',
               },
               ticks: { stroke: 'black', size: 5 },
@@ -90,11 +90,6 @@ export const SavedByDay: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-  title: {
-    fontFamily: 'TitilliumWeb-Bold',
-    fontWeight: 'bold',
-    fontSize: 21,
-  },
   graphContainer: {
     margin: 10,
     borderWidth: 2,

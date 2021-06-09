@@ -57,15 +57,6 @@ export const SavedByHour: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-  jokeJenerator: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   graphContainer: {
     margin: 10,
     borderWidth: 2,
