@@ -53,7 +53,7 @@ export const SavedByHour: React.FC = () => {
             },
           }}
           data={[
-            { name: 'Morning', symbol: { type: 'star' } },
+            { name: `${data[0].x}`, symbol: { type: 'star' } },
             { name: 'Afternoon', symbol: { type: 'star' } },
             { name: 'Evening', symbol: { type: 'star' } },
             { name: 'Night', symbol: { type: 'star' } },
@@ -64,6 +64,7 @@ export const SavedByHour: React.FC = () => {
           width={300}
           height={300}
           innerRadius={30}
+          standalone={false}
           colorScale={['#1C72E3', '#FEBD00', '#FE00C0', '#00FE3E']}
           animate={{
             easing: 'exp',
