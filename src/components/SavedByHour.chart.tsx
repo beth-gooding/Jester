@@ -43,6 +43,7 @@ export const SavedByHour: React.FC = () => {
           standalone={false}
           width={300}
           itemsPerRow={2}
+          colorScale={['#1C72E3', '#FEBD00', '#FE00C0', '#00FE3E']}
           style={{
             border: { stroke: '#1C72E3' },
             title: {
@@ -52,10 +53,10 @@ export const SavedByHour: React.FC = () => {
             },
           }}
           data={[
-            { name: 'Morning', symbol: { fill: '#FEBD00', type: 'star' } },
-            { name: 'Afternoon', symbol: { fill: '#1C72E3', type: 'star' } },
-            { name: 'Evening', symbol: { fill: '#FE00C0', type: 'star' } },
-            { name: 'Night', symbol: { fill: '#00FE3E', type: 'star' } },
+            { name: 'Morning', symbol: { type: 'star' } },
+            { name: 'Afternoon', symbol: { type: 'star' } },
+            { name: 'Evening', symbol: { type: 'star' } },
+            { name: 'Night', symbol: { type: 'star' } },
           ]}
         />
         <VictoryPie
