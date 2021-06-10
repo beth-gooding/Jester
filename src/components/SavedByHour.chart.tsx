@@ -5,7 +5,6 @@ import groupBy from 'lodash/groupBy';
 import orderBy from 'lodash/orderBy';
 import { format } from 'date-fns';
 import { GraphContainer } from './GraphContainer';
-import { Text } from 'react-native';
 type dataType = {
   x: string;
   y: number;
@@ -45,52 +44,48 @@ export const SavedByHour: React.FC = () => {
 
   return (
     <GraphContainer title={'Overall Number of Jokes \n Saved Per Hour'}>
-      {data.length === 0 ? (
-        <Text>Save some jokes to generate your stats</Text>
-      ) : (
-        <VictoryContainer width={300} height={450}>
-          <VictoryLegend
-            x={50}
-            y={300}
-            title={'Legend'}
-            centerTitle
-            orientation="vertical"
-            gutter={25}
-            standalone={false}
-            width={300}
-            itemsPerRow={2}
-            colorScale={['#1C72E3', '#FEBD00', '#FE00C0', '#00FE3E']}
-            style={{
-              border: { stroke: '#1C72E3' },
-              title: {
-                fontSize: 17,
-                fontFamily: 'TitilliumWeb-Bold',
-                fontWeight: 'bold',
-              },
-            }}
-            data={legendData}
-          />
-          <VictoryPie
-            data={data}
-            width={300}
-            height={300}
-            innerRadius={30}
-            standalone={false}
-            colorScale={['#1C72E3', '#FEBD00', '#FE00C0', '#00FE3E']}
-            animate={{
-              easing: 'exp',
-            }}
-            labels={({ datum }) => `${datum.x}`}
-            labelRadius={35}
-            labelPlacement={'parallel'}
-            style={{
-              data: { stroke: 'white', strokeWidth: 2 },
-              labels: { fill: 'white', fontSize: 14 },
-            }}
-            padAngle={0}
-          />
-        </VictoryContainer>
-      )}
+      <VictoryContainer width={300} height={450}>
+        <VictoryLegend
+          x={50}
+          y={300}
+          title={'Legend'}
+          centerTitle
+          orientation="vertical"
+          gutter={25}
+          standalone={false}
+          width={300}
+          itemsPerRow={2}
+          colorScale={['#1C72E3', '#FEBD00', '#FE00C0', '#00FE3E']}
+          style={{
+            border: { stroke: '#1C72E3' },
+            title: {
+              fontSize: 17,
+              fontFamily: 'TitilliumWeb-Bold',
+              fontWeight: 'bold',
+            },
+          }}
+          data={legendData}
+        />
+        <VictoryPie
+          data={data}
+          width={300}
+          height={300}
+          innerRadius={30}
+          standalone={false}
+          colorScale={['#1C72E3', '#FEBD00', '#FE00C0', '#00FE3E']}
+          animate={{
+            easing: 'exp',
+          }}
+          labels={({ datum }) => `${datum.x}`}
+          labelRadius={35}
+          labelPlacement={'parallel'}
+          style={{
+            data: { stroke: 'white', strokeWidth: 2 },
+            labels: { fill: 'white', fontSize: 14 },
+          }}
+          padAngle={0}
+        />
+      </VictoryContainer>
     </GraphContainer>
   );
 };

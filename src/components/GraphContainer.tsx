@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import { useAppContext } from '../App.provider';
 import { Drawer } from './Drawer';
 
 type GraphContainerProps = {
@@ -10,9 +11,16 @@ export const GraphContainer: React.FC<GraphContainerProps> = ({
   title,
   children,
 }) => {
+  const { savedJokes } = useAppContext();
   return (
     <View style={styles.graphContainer}>
-      <Drawer title={title}>{children}</Drawer>
+      <Drawer title={title}>
+        {savedJokes.length === 0 ? (
+          <Text>Save some jokes to generate your stats</Text>
+        ) : (
+          children
+        )}
+      </Drawer>
     </View>
   );
 };
