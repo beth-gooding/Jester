@@ -76,14 +76,14 @@ export const SavedByHour: React.FC = () => {
           animate={{
             easing: 'exp',
           }}
-          labels={({ datum }) => `${datum.x}`}
+          labels={() => ''}
           labelRadius={35}
           labelPlacement={'parallel'}
           style={{
             data: { stroke: 'white', strokeWidth: 2 },
             labels: { fill: 'white', fontSize: 14 },
           }}
-          padAngle={0}
+          padAngle={1}
         />
       </VictoryContainer>
     </GraphContainer>
