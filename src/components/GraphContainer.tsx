@@ -16,7 +16,7 @@ export const GraphContainer: React.FC<GraphContainerProps> = ({
     <View style={styles.graphContainer}>
       <Drawer title={title}>
         {savedJokes.length === 0 ? (
-          <Text>Save some jokes to generate your stats</Text>
+          <Text style={styles.noJokes}>Save some jokes to generate stats</Text>
         ) : (
           children
         )}
@@ -33,5 +33,12 @@ const styles = StyleSheet.create({
     borderColor: '#1C72E3',
     backgroundColor: 'white',
     opacity: 0.95,
+  },
+  noJokes: {
+    fontFamily: 'TitilliumWeb-Regular',
+    fontSize: 16,
+    textAlign: 'center',
+    padding: 5,
+    margin: 10,
   },
 });
