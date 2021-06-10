@@ -8,6 +8,7 @@ import orderBy from 'lodash/orderBy';
 import { format } from 'date-fns';
 import { JokeWithTimeStamp } from '../types';
 import { Drawer } from '../components/Drawer';
+import { Text } from 'react-native';
 
 const networkImageUrl =
   'https://images.unsplash.com/photo-1525538182201-02cd1909effb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80';
@@ -30,19 +31,27 @@ export const SavedJokesTab: React.FC = () => {
       source={{ uri: networkImageUrl }}
       style={styles.jokeJenerator}
     >
-      <FlatList
-        keyExtractor={(item) => item.day}
-        data={daysWithJokes}
-        renderItem={({ item }) => (
-          <View style={styles.dayContainer}>
-            <Drawer title={item.day}>
-              {item.jokesInDay.map((joke: JokeWithTimeStamp) => (
-                <SavedJokeListItem jokeObject={joke} key={joke.timestamp} />
-              ))}
-            </Drawer>
-          </View>
-        )}
-      />
+      {savedJokes.length === 0 ? (
+        <View style={[styles.dayContainer]}>
+          <Text style={styles.noJokes}>
+            Save some jokes to see them listed here
+          </Text>
+        </View>
+      ) : (
+        <FlatList
+          keyExtractor={(item) => item.day}
+          data={daysWithJokes}
+          renderItem={({ item }) => (
+            <View style={styles.dayContainer}>
+              <Drawer title={item.day}>
+                {item.jokesInDay.map((joke: JokeWithTimeStamp) => (
+                  <SavedJokeListItem jokeObject={joke} key={joke.timestamp} />
+                ))}
+              </Drawer>
+            </View>
+          )}
+        />
+      )}
     </ImageBackground>
   );
 };
@@ -64,5 +73,13 @@ const styles = StyleSheet.create({
     borderColor: '#1C72E3',
     backgroundColor: 'white',
     opacity: 0.85,
+  },
+  noJokes: {
+    fontSize: 26,
+    fontFamily: 'TitilliumWeb-Bold',
+    color: '#1C72E3',
+    textAlign: 'center',
+    alignSelf: 'center',
+    padding: 10,
   },
 });
