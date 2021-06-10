@@ -100,12 +100,15 @@ export const JokeDisplayer: React.FC = () => {
             </ScrollView>
           </View>
           <View style={styles.btnContainer}>
-            <TouchableOpacity onPress={handleFetchNewJoke}>
+            <TouchableOpacity onPress={handleFetchNewJoke} style={styles.btn}>
               <View style={styles.btn}>
                 <DiscardJokeIcon />
               </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => handleSave(joke)}>
+            <TouchableOpacity
+              onPress={() => handleSave(joke)}
+              style={styles.btn}
+            >
               <View style={[styles.btn, styles.starBtn]}>
                 <StarJokeIcon />
               </View>
