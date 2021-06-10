@@ -5,6 +5,7 @@ import groupBy from 'lodash/groupBy';
 import orderBy from 'lodash/orderBy';
 import { format } from 'date-fns';
 import { GraphContainer } from './GraphContainer';
+import { Text } from 'react-native';
 
 export const SavedByDay: React.FC = () => {
   const { savedJokes } = useAppContext();
@@ -27,7 +28,9 @@ export const SavedByDay: React.FC = () => {
         }));
   }, [savedJokes]);
 
-  return (
+  return data.length === 0 ? (
+    <Text>Save some jokes to generate your stats</Text>
+  ) : (
     <GraphContainer
       title={'Number of Jokes \n Saved on the Last \n Four Active Days'}
     >
