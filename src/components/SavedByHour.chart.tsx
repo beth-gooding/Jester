@@ -34,14 +34,14 @@ export const SavedByHour: React.FC = () => {
     }));
   }, [savedJokes]);
 
-  // const legendData = useMemo((data) => {
-  //   const numOfPeriods = data.length;
-  //   const legendArray = Array(numOfPeriods);
-  //   for (let i = 0; i < numOfPeriods; i++) {
-  //     legendArray[i] = data[i].x;
-  //   }
-  //   return legendArray;
-  // }, []);
+  const legendData = useMemo(() => {
+    const numOfPeriods = data.length;
+    const legendArray = Array(numOfPeriods);
+    for (let i = 0; i < numOfPeriods; i++) {
+      legendArray[i] = { name: `${data[i].x}`, symbol: { type: 'star' } };
+    }
+    return legendArray;
+  }, [data]);
 
   return (
     <GraphContainer title={'Overall Number of Jokes \n Saved Per Hour'}>
@@ -68,7 +68,7 @@ export const SavedByHour: React.FC = () => {
                 fontWeight: 'bold',
               },
             }}
-            data={[]}
+            data={legendData}
           />
           <VictoryPie
             data={data}
