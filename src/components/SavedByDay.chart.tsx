@@ -28,63 +28,65 @@ export const SavedByDay: React.FC = () => {
         }));
   }, [savedJokes]);
 
-  return data.length === 0 ? (
-    <Text>Save some jokes to generate your stats</Text>
-  ) : (
+  return (
     <GraphContainer
       title={'Number of Jokes \n Saved on the Last \n Four Active Days'}
     >
-      <VictoryChart
-        width={300}
-        height={400}
-        domainPadding={{ x: 15, y: 5 }}
-        style={{ background: { fill: 'white' } }}
-      >
-        <VictoryBar
-          data={data}
-          style={{ data: { fill: '#1C72E3' } }}
-          animate={{
-            duration: 2000,
-            easing: 'sin',
-            onLoad: { duration: 1000 },
-          }}
-        />
-        <VictoryAxis
-          label="Date"
-          style={{
-            axisLabel: {
-              fontSize: 22,
-              fontFamily: 'TitilliumWeb-Regular',
-              fontWeight: 'bold',
-              padding: 25,
-            },
+      {data.length === 0 ? (
+        <Text>Save some jokes to generate your stats</Text>
+      ) : (
+        <VictoryChart
+          width={300}
+          height={400}
+          domainPadding={{ x: 15, y: 5 }}
+          style={{ background: { fill: 'white' } }}
+        >
+          <VictoryBar
+            data={data}
+            style={{ data: { fill: '#1C72E3' } }}
+            animate={{
+              duration: 2000,
+              easing: 'sin',
+              onLoad: { duration: 1000 },
+            }}
+          />
+          <VictoryAxis
+            label="Date"
+            style={{
+              axisLabel: {
+                fontSize: 22,
+                fontFamily: 'TitilliumWeb-Regular',
+                fontWeight: 'bold',
+                padding: 25,
+              },
 
-            tickLabels: {
-              fontSize: 18,
-              padding: 5,
-              fontFamily: 'TitilliumWeb-Light',
-            },
-          }}
-        />
-        <VictoryAxis
-          dependentAxis={true}
-          label="Number of saved jokes"
-          style={{
-            axisLabel: {
-              fontSize: 22,
-              fontFamily: 'TitilliumWeb-Regular',
-              fontWeight: 'bold',
-              padding: 30,
-            },
-            tickLabels: {
-              fontSize: 19,
-              padding: 0,
-              fontFamily: 'TitilliumWeb-Light',
-            },
-            ticks: { stroke: 'black', size: 5 },
-          }}
-        />
-      </VictoryChart>
+              tickLabels: {
+                fontSize: 18,
+                padding: 5,
+                fontFamily: 'TitilliumWeb-Light',
+              },
+            }}
+          />
+          <VictoryAxis
+            dependentAxis={true}
+            label="Number of saved jokes"
+            style={{
+              axisLabel: {
+                fontSize: 22,
+                fontFamily: 'TitilliumWeb-Regular',
+                fontWeight: 'bold',
+                padding: 30,
+              },
+              tickLabels: {
+                fontSize: 19,
+                padding: 0,
+                fontFamily: 'TitilliumWeb-Light',
+              },
+              ticks: { stroke: 'black', size: 5 },
+            }}
+          />
+        </VictoryChart>
+      )}
     </GraphContainer>
   );
 };

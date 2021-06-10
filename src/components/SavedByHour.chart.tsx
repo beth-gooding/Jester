@@ -31,57 +31,59 @@ export const SavedByHour: React.FC = () => {
     }));
   }, [savedJokes]);
 
-  return data.length === 0 ? (
-    <Text>Save some jokes to generate your stats</Text>
-  ) : (
+  return (
     <GraphContainer title={'Overall Number of Jokes \n Saved Per Hour'}>
-      <VictoryContainer width={300} height={450}>
-        <VictoryLegend
-          x={50}
-          y={300}
-          title={'Legend'}
-          centerTitle
-          orientation="vertical"
-          gutter={25}
-          standalone={false}
-          width={300}
-          itemsPerRow={2}
-          colorScale={['#1C72E3', '#FEBD00', '#FE00C0', '#00FE3E']}
-          style={{
-            border: { stroke: '#1C72E3' },
-            title: {
-              fontSize: 17,
-              fontFamily: 'TitilliumWeb-Bold',
-              fontWeight: 'bold',
-            },
-          }}
-          data={[
-            { name: `${data[0].x}`, symbol: { type: 'star' } },
-            { name: 'Afternoon', symbol: { type: 'star' } },
-            { name: 'Evening', symbol: { type: 'star' } },
-            { name: 'Night', symbol: { type: 'star' } },
-          ]}
-        />
-        <VictoryPie
-          data={data}
-          width={300}
-          height={300}
-          innerRadius={30}
-          standalone={false}
-          colorScale={['#1C72E3', '#FEBD00', '#FE00C0', '#00FE3E']}
-          animate={{
-            easing: 'exp',
-          }}
-          labels={({ datum }) => `${datum.x}`}
-          labelRadius={35}
-          labelPlacement={'parallel'}
-          style={{
-            data: { stroke: 'white', strokeWidth: 2 },
-            labels: { fill: 'white', fontSize: 14 },
-          }}
-          padAngle={0}
-        />
-      </VictoryContainer>
+      {data.length === 0 ? (
+        <Text>Save some jokes to generate your stats</Text>
+      ) : (
+        <VictoryContainer width={300} height={450}>
+          <VictoryLegend
+            x={50}
+            y={300}
+            title={'Legend'}
+            centerTitle
+            orientation="vertical"
+            gutter={25}
+            standalone={false}
+            width={300}
+            itemsPerRow={2}
+            colorScale={['#1C72E3', '#FEBD00', '#FE00C0', '#00FE3E']}
+            style={{
+              border: { stroke: '#1C72E3' },
+              title: {
+                fontSize: 17,
+                fontFamily: 'TitilliumWeb-Bold',
+                fontWeight: 'bold',
+              },
+            }}
+            data={[
+              { name: `${data[0].x}`, symbol: { type: 'star' } },
+              { name: 'Afternoon', symbol: { type: 'star' } },
+              { name: 'Evening', symbol: { type: 'star' } },
+              { name: 'Night', symbol: { type: 'star' } },
+            ]}
+          />
+          <VictoryPie
+            data={data}
+            width={300}
+            height={300}
+            innerRadius={30}
+            standalone={false}
+            colorScale={['#1C72E3', '#FEBD00', '#FE00C0', '#00FE3E']}
+            animate={{
+              easing: 'exp',
+            }}
+            labels={({ datum }) => `${datum.x}`}
+            labelRadius={35}
+            labelPlacement={'parallel'}
+            style={{
+              data: { stroke: 'white', strokeWidth: 2 },
+              labels: { fill: 'white', fontSize: 14 },
+            }}
+            padAngle={0}
+          />
+        </VictoryContainer>
+      )}
     </GraphContainer>
   );
 };
