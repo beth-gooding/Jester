@@ -6,11 +6,14 @@ import orderBy from 'lodash/orderBy';
 import { format } from 'date-fns';
 import { GraphContainer } from './GraphContainer';
 import { Text } from 'react-native';
-
+type dataType = {
+  x: string;
+  y: number;
+};
 export const SavedByHour: React.FC = () => {
   const { savedJokes } = useAppContext();
 
-  const data = useMemo(() => {
+  const data: dataType[] = useMemo(() => {
     const orderedJokes = orderBy(savedJokes, 'timestamp', 'asc');
     const groupedJokes = groupBy(orderedJokes, (item) => {
       // eslint-disable-next-line radix
@@ -32,7 +35,11 @@ export const SavedByHour: React.FC = () => {
   }, [savedJokes]);
 
   // const legendData = useMemo((data) => {
-  //   const legendArray = [];
+  //   const numOfPeriods = data.length;
+  //   const legendArray = Array(numOfPeriods);
+  //   for (let i = 0; i < numOfPeriods; i++) {
+  //     legendArray[i] = data[i].x;
+  //   }
   //   return legendArray;
   // }, []);
 
@@ -61,12 +68,7 @@ export const SavedByHour: React.FC = () => {
                 fontWeight: 'bold',
               },
             }}
-            data={[
-              { name: `${data[0].x}`, symbol: { type: 'star' } },
-              { name: 'Afternoon', symbol: { type: 'star' } },
-              { name: 'Evening', symbol: { type: 'star' } },
-              { name: 'Night', symbol: { type: 'star' } },
-            ]}
+            data={[]}
           />
           <VictoryPie
             data={data}
