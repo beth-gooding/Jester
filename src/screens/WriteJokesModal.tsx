@@ -7,8 +7,11 @@ export const WriteJokesModal: React.FC = () => {
     <View style={styles.container}>
       <Text>This is my modal where the user can write new jokes</Text>
       <TextInput style={styles.input} multiline={true} />
-      <IconButton onPressFunction={() => null} iconStyles={[styles.submitBtn]}>
-        <Text>Submit your joke!</Text>
+      <IconButton
+        onPressFunction={() => console.warn('Submit button pressed!')}
+        iconStyles={[styles.submitBtn]}
+      >
+        <Text style={styles.submitText}>Submit your joke!</Text>
       </IconButton>
     </View>
   );
@@ -30,6 +33,16 @@ const styles = StyleSheet.create({
   },
   submitBtn: {
     borderColor: '#1C72E3',
-    borderWidth: 2,
+    borderWidth: 1,
+    borderRadius: 50,
+    height: 100,
+    width: 100,
+    justifyContent: 'center',
+  },
+  submitText: {
+    color: '#1C72E3',
+    fontFamily: 'TitilliumWeb-Bold',
+    fontSize: 14,
+    textAlign: 'center',
   },
 });
