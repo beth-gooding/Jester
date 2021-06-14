@@ -1,10 +1,13 @@
 import React from 'react';
-import { StyleSheet, View, Text, TextInput } from 'react-native';
+import { StyleSheet, Text, TextInput, ImageBackground } from 'react-native';
 import { IconButton } from '../components/IconButton';
+
+const networkImageUrl =
+  'https://images.unsplash.com/photo-1485550409059-9afb054cada4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=802&q=80';
 
 export const WriteJokesModal: React.FC = () => {
   return (
-    <View style={styles.container}>
+    <ImageBackground source={{ uri: networkImageUrl }} style={styles.container}>
       <Text style={styles.title}>Enter your joke below:</Text>
       <TextInput style={styles.input} multiline={true} />
       <IconButton
@@ -13,7 +16,7 @@ export const WriteJokesModal: React.FC = () => {
       >
         <Text style={styles.submitText}>Submit your joke!</Text>
       </IconButton>
-    </View>
+    </ImageBackground>
   );
 };
 
@@ -54,5 +57,6 @@ const styles = StyleSheet.create({
     fontFamily: 'TitilliumWeb-Bold',
     fontSize: 18,
     color: '#1C72E3',
+    backgroundColor: 'white',
   },
 });
