@@ -7,18 +7,7 @@ import {
 } from '@react-navigation/stack';
 import { WriteJokesModal } from './WriteJokesModal';
 import { Platform } from 'react-native';
-import { NavigatorScreenParams } from '@react-navigation/native';
-
-type RootStackParamsList = {
-  BottomTabs: NavigatorScreenParams<BottomTabsParamList>;
-  WriteJokesModal: undefined;
-};
-
-type BottomTabsParamList = {
-  NewJokes: undefined;
-  SavedJokes: undefined;
-  Stats: undefined;
-};
+import { RootStackParamsList } from '../types';
 
 const RootStack = createStackNavigator<RootStackParamsList>();
 
