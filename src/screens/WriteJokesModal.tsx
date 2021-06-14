@@ -1,6 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
-import { StyleSheet, Text, TextInput, ImageBackground } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  ImageBackground,
+  View,
+} from 'react-native';
 import { useAppContext } from '../App.provider';
 import { IconButton } from '../components/IconButton';
 
@@ -16,18 +22,20 @@ export const WriteJokesModal: React.FC = () => {
   };
   return (
     <ImageBackground source={{ uri: networkImageUrl }} style={styles.container}>
-      <Text style={styles.title}>Enter your joke below:</Text>
-      <TextInput
-        style={styles.input}
-        multiline={true}
-        onChangeText={setUsersOwnJoke}
-      />
-      <IconButton
-        onPressFunction={() => handleSubmitJoke()}
-        iconStyles={[styles.submitBtn]}
-      >
-        <Text style={styles.submitText}>Submit your joke!</Text>
-      </IconButton>
+      <View style={styles.formContainer}>
+        <Text style={styles.title}>Enter your joke below:</Text>
+        <TextInput
+          style={styles.input}
+          multiline={true}
+          onChangeText={setUsersOwnJoke}
+        />
+        <IconButton
+          onPressFunction={() => handleSubmitJoke()}
+          iconStyles={[styles.submitBtn]}
+        >
+          <Text style={styles.submitText}>Submit your joke!</Text>
+        </IconButton>
+      </View>
     </ImageBackground>
   );
 };
@@ -37,6 +45,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  formContainer: {
+    flex: 1,
+    borderWidth: 2,
+    borderRadius: 10,
+    borderColor: '#1C72E3',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white',
+    opacity: 0.9,
+    maxHeight: 680,
+    width: 350,
   },
   input: {
     borderWidth: 1,
