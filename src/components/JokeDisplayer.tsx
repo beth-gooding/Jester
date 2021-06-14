@@ -1,11 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import {
-  ImageBackground,
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-} from 'react-native';
+import { ImageBackground, View, Text, StyleSheet } from 'react-native';
 import { DiscardJokeIcon } from './DiscardJoke.icon';
 import { StarJokeIcon } from './StarJoke.icon';
 import { useAppContext } from '../App.provider';
@@ -98,23 +92,23 @@ export const JokeDisplayer: React.FC = () => {
               showsVerticalScrollIndicator={true}
             >
               <Text style={styles.joke}>{joke}</Text>
-              <IconButton />
             </ScrollView>
           </View>
           <View style={styles.btnContainer}>
-            <TouchableOpacity onPress={handleFetchNewJoke} style={styles.btn}>
-              <View style={styles.btn}>
-                <DiscardJokeIcon />
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => handleSave(joke)}
-              style={styles.btn}
+            <IconButton
+              iconStyles={[styles.btn]}
+              onPressFunction={() => {
+                handleFetchNewJoke();
+              }}
             >
-              <View style={[styles.btn, styles.starBtn]}>
-                <StarJokeIcon />
-              </View>
-            </TouchableOpacity>
+              <DiscardJokeIcon />
+            </IconButton>
+            <IconButton
+              iconStyles={[styles.btn, styles.starBtn]}
+              onPressFunction={() => handleSave(joke)}
+            >
+              <StarJokeIcon />
+            </IconButton>
           </View>
         </ImageBackground>
       </Animated.View>
