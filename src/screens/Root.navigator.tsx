@@ -11,6 +11,7 @@ import { Platform } from 'react-native';
 const RootStack = createStackNavigator();
 
 const modalScreenOptions: Partial<StackNavigationOptions> = {
+  title: '',
   gestureDirection: 'vertical',
   gestureEnabled: true,
   cardOverlayEnabled: true,
@@ -26,7 +27,7 @@ export const RootNavigator: React.FC = () => {
       <RootStack.Screen
         name="BottomTabs"
         component={BottomTabs}
-        options={{ headerShown: false }}
+        options={{ headerShown: false, title: 'New Jokes' }}
       />
       <RootStack.Screen
         name="WriteJokesModal"
