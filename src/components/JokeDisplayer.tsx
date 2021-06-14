@@ -17,6 +17,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { IconButton } from './IconButton';
 import { ButtonPair } from './ButtonPair';
+import { JokeDisplayerButtons } from './JokeDisplayerButtons';
 
 const imageSrc = require('../assets/images/chat.png');
 
@@ -95,6 +96,7 @@ export const JokeDisplayer: React.FC = () => {
               <Text style={styles.joke}>{joke}</Text>
             </ScrollView>
           </View>
+          <JokeDisplayerButtons />
           <ButtonPair>
             <IconButton
               iconStyles={[styles.btn]}
