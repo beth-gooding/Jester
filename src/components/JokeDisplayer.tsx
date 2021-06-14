@@ -1,11 +1,10 @@
 import React, { useCallback, useState } from 'react';
-import { ImageBackground, View, Text, StyleSheet } from 'react-native';
+import { ImageBackground, StyleSheet } from 'react-native';
 import { useAppContext } from '../App.provider';
 import {
   PanGestureHandler,
   PanGestureHandlerGestureEvent,
   PanGestureHandlerStateChangeEvent,
-  ScrollView,
   State as GestureState,
 } from 'react-native-gesture-handler';
 import Animated, {
@@ -14,6 +13,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { JokeDisplayerButtons } from './JokeDisplayerButtons';
+import { JokeDisplayerText } from './JokeDisplayerText';
 
 const imageSrc = require('../assets/images/chat.png');
 
@@ -82,16 +82,7 @@ export const JokeDisplayer: React.FC = () => {
     >
       <Animated.View style={[styles.speechBubbleContainer, animatedStyles]}>
         <ImageBackground source={imageSrc} style={styles.speechBubble}>
-          <View style={styles.jokeContainer}>
-            <Text style={styles.jokeTitle}>Here's a joke for you:</Text>
-            <ScrollView
-              overScrollMode={'always'}
-              persistentScrollbar={true}
-              showsVerticalScrollIndicator={true}
-            >
-              <Text style={styles.joke}>{joke}</Text>
-            </ScrollView>
-          </View>
+          <JokeDisplayerText jokeToDisplay={joke} />
           <JokeDisplayerButtons
             onPressFunctionButton1={() => {
               handleFetchNewJoke();
