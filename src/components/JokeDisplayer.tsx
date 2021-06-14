@@ -1,7 +1,5 @@
 import React, { useCallback, useState } from 'react';
 import { ImageBackground, View, Text, StyleSheet } from 'react-native';
-import { DiscardJokeIcon } from './DiscardJoke.icon';
-import { StarJokeIcon } from './StarJoke.icon';
 import { useAppContext } from '../App.provider';
 import {
   PanGestureHandler,
@@ -15,8 +13,6 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
-import { IconButton } from './IconButton';
-import { ButtonPair } from './ButtonPair';
 import { JokeDisplayerButtons } from './JokeDisplayerButtons';
 
 const imageSrc = require('../assets/images/chat.png');
@@ -96,23 +92,14 @@ export const JokeDisplayer: React.FC = () => {
               <Text style={styles.joke}>{joke}</Text>
             </ScrollView>
           </View>
-          <JokeDisplayerButtons />
-          <ButtonPair>
-            <IconButton
-              iconStyles={[styles.btn]}
-              onPressFunction={() => {
-                handleFetchNewJoke();
-              }}
-            >
-              <DiscardJokeIcon />
-            </IconButton>
-            <IconButton
-              iconStyles={[styles.btn, styles.starBtn]}
-              onPressFunction={() => handleSave(joke)}
-            >
-              <StarJokeIcon />
-            </IconButton>
-          </ButtonPair>
+          <JokeDisplayerButtons
+            onPressFunctionButton1={() => {
+              handleFetchNewJoke();
+            }}
+            iconStylesButton1={[styles.btn]}
+            onPressFunctionButton2={() => handleSave(joke)}
+            iconStylesButton2={[styles.btn, styles.starBtn]}
+          />
         </ImageBackground>
       </Animated.View>
     </PanGestureHandler>
