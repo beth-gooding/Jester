@@ -5,7 +5,7 @@ import { IconButton } from '../components/IconButton';
 export const WriteJokesModal: React.FC = () => {
   return (
     <View style={styles.container}>
-      <Text>This is my modal where the user can write new jokes</Text>
+      <Text style={styles.title}>Enter your joke below:</Text>
       <TextInput style={styles.input} multiline={true} />
       <IconButton
         onPressFunction={() => console.warn('Submit button pressed!')}
@@ -29,7 +29,11 @@ const styles = StyleSheet.create({
     padding: 5,
     marginVertical: 10,
     borderRadius: 10,
-    width: 300,
+    minWidth: 300,
+    minHeight: 100,
+    maxHeight: 500,
+    backgroundColor: 'white',
+    opacity: 0.9,
   },
   submitBtn: {
     borderColor: '#1C72E3',
@@ -38,11 +42,17 @@ const styles = StyleSheet.create({
     height: 100,
     width: 100,
     justifyContent: 'center',
+    backgroundColor: 'white',
   },
   submitText: {
     color: '#1C72E3',
     fontFamily: 'TitilliumWeb-Bold',
     fontSize: 14,
     textAlign: 'center',
+  },
+  title: {
+    fontFamily: 'TitilliumWeb-Bold',
+    fontSize: 18,
+    color: '#1C72E3',
   },
 });
