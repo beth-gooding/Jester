@@ -7,8 +7,20 @@ import {
 } from '@react-navigation/stack';
 import { WriteJokesModal } from './WriteJokesModal';
 import { Platform } from 'react-native';
+import { NavigatorScreenParams } from '@react-navigation/native';
 
-const RootStack = createStackNavigator();
+type RootStackParamsList = {
+  BottomTabs: NavigatorScreenParams<BottomTabsParamList>;
+  WriteJokesModal: undefined;
+};
+
+type BottomTabsParamList = {
+  NewJokes: undefined;
+  SavedJokes: undefined;
+  Stats: undefined;
+};
+
+const RootStack = createStackNavigator<RootStackParamsList>();
 
 const modalScreenOptions: Partial<StackNavigationOptions> = {
   title: '',
