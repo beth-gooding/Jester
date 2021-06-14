@@ -1,8 +1,14 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
-export const ButtonPair: React.FC = () => {
-    return (
-        <Text>A pair of buttons</Text>
-    );
+export const ButtonPair: React.FC = ({ children }) => {
+  return <View style={styles.btnContainer}>{children}</View>;
 };
+
+const styles = StyleSheet.create({
+  btnContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingBottom: 85,
+  },
+});

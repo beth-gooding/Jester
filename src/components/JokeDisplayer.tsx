@@ -95,8 +95,7 @@ export const JokeDisplayer: React.FC = () => {
               <Text style={styles.joke}>{joke}</Text>
             </ScrollView>
           </View>
-          <ButtonPair />
-          <View style={styles.btnContainer}>
+          <ButtonPair>
             <IconButton
               iconStyles={[styles.btn]}
               onPressFunction={() => {
@@ -111,7 +110,7 @@ export const JokeDisplayer: React.FC = () => {
             >
               <StarJokeIcon />
             </IconButton>
-          </View>
+          </ButtonPair>
         </ImageBackground>
       </Animated.View>
     </PanGestureHandler>
