@@ -1,10 +1,9 @@
 import React from 'react';
-import { StyleSheet, ImageBackground } from 'react-native';
+import { StyleSheet, ImageBackground, Text } from 'react-native';
 import { useEffect } from 'react';
 import { useAppContext } from '../App.provider';
 import { JokeDisplayer } from '../components/JokeDisplayer';
 import { IconButton } from '../components/IconButton';
-import { AddJokeIcon } from '../components/AddJoke.icon';
 import { useNavigation } from '@react-navigation/native';
 
 const networkImageUrl =
@@ -29,7 +28,7 @@ export const NewJokesTab: React.FC = () => {
           navigation.navigate('WriteJokesModal');
         }}
       >
-        <AddJokeIcon size={90} color={'#febd00'} />
+        <Text style={styles.btnText}>Write your own joke</Text>
       </IconButton>
     </ImageBackground>
   );
@@ -39,6 +38,7 @@ const styles = StyleSheet.create({
   jokeJenerator: {
     flex: 1,
     justifyContent: 'center',
+    alignItems: 'center',
   },
   btn: {
     shadowOffset: { width: 7, height: 7 },
@@ -49,5 +49,10 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     height: 90,
     width: 90,
+    justifyContent: 'center',
+  },
+  btnText: {
+    textAlign: 'center',
+    color: '#1C72E3',
   },
 });
