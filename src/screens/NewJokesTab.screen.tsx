@@ -28,7 +28,7 @@ export const NewJokesTab: React.FC = () => {
           navigation.navigate('WriteJokesModal');
         }}
       >
-        <Text style={styles.btnText}>Write your own joke</Text>
+        <Text style={styles.btnText}>{'Write \nyour own \njoke'}</Text>
       </IconButton>
     </ImageBackground>
   );
@@ -46,13 +46,15 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     elevation: 2,
     backgroundColor: 'white',
-    borderRadius: 50,
-    height: 90,
-    width: 90,
+    borderRadius: 100,
+    height: 140,
+    width: 140,
     justifyContent: 'center',
   },
   btnText: {
     textAlign: 'center',
+    fontFamily: 'TitilliumWeb-Bold',
+    fontSize: 18,
     color: '#1C72E3',
   },
 });
