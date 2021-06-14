@@ -21,6 +21,7 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
+import { IconButton } from './IconButton';
 
 const imageSrc = require('../assets/images/chat.png');
 
@@ -97,6 +98,7 @@ export const JokeDisplayer: React.FC = () => {
               showsVerticalScrollIndicator={true}
             >
               <Text style={styles.joke}>{joke}</Text>
+              <IconButton />
             </ScrollView>
           </View>
           <View style={styles.btnContainer}>
