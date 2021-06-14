@@ -13,6 +13,7 @@ const networkImageUrl =
 
 type Props = {
   navigation: StackNavigationProp<RootStackParamsList, 'WriteJokesModal'>;
+  navigate: any;
 };
 
 export const NewJokesTab: React.FC<Props> = () => {
